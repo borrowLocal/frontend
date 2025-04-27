@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import MainPage from './pages/MainPage';
+import Onboarding from './pages/Onboarding';
 import AuthModal from './components/AuthModal';
 import './App.css';
 
@@ -9,7 +9,7 @@ function App() {
     <Router>
       <div className="app">
         <Routes>
-          <Route path="/" element={<MainPage />}>
+          <Route path="/" element={<Onboarding />}>
             <Route path="login" element={<AuthModal />} />
             <Route path="register" element={<AuthModal />} />
             <Route path="findPassword" element={<AuthModal />} />

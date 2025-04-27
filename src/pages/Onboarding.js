@@ -1,8 +1,8 @@
 import React from 'react';
 import { useNavigate, Outlet } from 'react-router-dom';
-import '../styles/MainPage.css';
+import '../styles/Onboarding.css';
 
-const MainPage = () => {
+const Onboarding = () => {
   const navigate = useNavigate();
   
   return (
@@ -37,4 +37,4 @@ const MainPage = () => {
   );
 };
 
-export default MainPage; 
+export default Onboarding; 
