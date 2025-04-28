@@ -4,7 +4,10 @@ h2 {
   }
   
   .login-form,
-  .register-form {
+  .register-form,
+  .resetPW-form,
+  .confirmPW-form,
+  .editProfile-form {
     margin-top: 2rem;
   }
   

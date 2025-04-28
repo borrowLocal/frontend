@@ -3,12 +3,12 @@ import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom';
 import '../Auth/Auth.css';
 
-const FindPassword = () => {
+const ConfirmPW = () => {
   const navigate = useNavigate();
   const [password, setPassword] = useState('');
 
   return (
-    <div className="register-form">
+    <div className="confirmPW-form">
       <h2>비밀번호 확인</h2>
       <input
         type="password"
@@ -26,4 +26,4 @@ const FindPassword = () => {
   );
 };
 
-export default FindPassword; 
+export default ConfirmPW; 

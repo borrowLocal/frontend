@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../Auth/Auth.css';
 import './NotiToggle.css';
 
 const Register = () => {
+  const navigate = useNavigate();
   const [userName, setUserName] = useState('');
   const [nickName, setNickName] = useState('');
   const [password, setPassword] = useState('');
@@ -12,7 +14,7 @@ const Register = () => {
   const [notifications, setNotifications] = useState(false);
 
   return (
-    <div className="register-form">
+    <div className="editProfile-form">
       <h2>회원 정보 수정</h2>
       <input
         type="text"
@@ -66,7 +68,7 @@ const Register = () => {
         </label>
       </div>
 
-      <button className="submit-button">
+      <button className="submit-button" onClick={() => navigate('/myPage')}>
         수정 완료
     </button>
     </div>
