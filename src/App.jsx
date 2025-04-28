@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Onboarding from './pages/Onboarding';
-import AuthModal from './components/Modal';
+import SideModal from './components/SideModal';
 import Home from './pages/Home';
 import './App.css';
 
@@ -11,13 +11,13 @@ function App() {
       <div className="app">
         <Routes>
           <Route path="/" element={<Home />}>
-            <Route path="login" element={<AuthModal />} />
-            <Route path="register" element={<AuthModal />} />
-            <Route path="findPassword" element={<AuthModal />} />
-            <Route path="resetPW" element={<AuthModal />} />
-            <Route path="myPage" element={<AuthModal />} />
-            <Route path="confirmPW" element={<AuthModal />} />
-            <Route path="editProfile" element={<AuthModal />} />
+            <Route path="login" element={<SideModal />} />
+            <Route path="register" element={<SideModal />} />
+            <Route path="findPassword" element={<SideModal />} />
+            <Route path="resetPW" element={<SideModal />} />
+            <Route path="myPage" element={<SideModal />} />
+            <Route path="confirmPW" element={<SideModal />} />
+            <Route path="editProfile" element={<SideModal />} />
           </Route>
         </Routes>
       </div>

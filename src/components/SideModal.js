@@ -7,9 +7,9 @@ import ResetPW from './Auth/ResetPW';
 import MyPage from './MyMenu/MyPage';
 import ConfirmPW from './MyMenu/ConfirmPW';
 import EditProfile from './MyMenu/EditProfile';
-import '../styles/Modal.css';
+import '../styles/SideModal.css';
 
-const AuthModal = () => {
+const SideModal = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isClosing, setIsClosing] = useState(false);
@@ -48,4 +48,4 @@ const AuthModal = () => {
   );
 };
 
-export default AuthModal; 
+export default SideModal; 
