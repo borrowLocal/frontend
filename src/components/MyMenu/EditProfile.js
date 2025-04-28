@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import '../styles/LoginModal.css';
+import '../Auth/Auth.css';
+import './NotiToggle.css';
 
 const Register = () => {
   const [userName, setUserName] = useState('');
   const [nickName, setNickName] = useState('');
-  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [newPW, setNewPW] = useState('');
   const [confirmPW, setConfirmPW] = useState('');
   const [bDay, setBDay] = useState('');
+  const [notifications, setNotifications] = useState(false);
 
   return (
     <div className="register-form">
-      <h2>회원가입</h2>
+      <h2>회원 정보 수정</h2>
       <input
         type="text"
         placeholder="이름"
@@ -26,20 +27,20 @@ const Register = () => {
         onChange={(e) => setNickName(e.target.value)}
       />
       <input
-        type="email"
-        placeholder="이메일"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
         type="password"
-        placeholder="비밀번호"
+        placeholder="현재 비밀번호"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
       <input
         type="password"
-        placeholder="비밀번호 확인"
+        placeholder="새 비밀번호"
+        value={newPW}
+        onChange={(e) => setNewPW(e.target.value)}
+      />
+      <input
+        type="password"
+        placeholder="새 비밀번호 확인"
         value={confirmPW}
         onChange={(e) => setConfirmPW(e.target.value)}
       />
@@ -52,12 +53,22 @@ const Register = () => {
         value={bDay}
         onChange={(e) => setBDay(e.target.value)}
       />
-      <button className="submit-button">회원가입</button>
-      <div className="form-footer">
-        <Link to="/login" className="text-button">
-          로그인으로 돌아가기
-        </Link>
+      
+      <div className="notification-setting">
+        <span>알림 설정</span>
+        <label className="toggle-switch">
+          <input
+            type="checkbox"
+            checked={notifications}
+            onChange={() => setNotifications(!notifications)}
+          />
+          <span className="toggle-slider"></span>
+        </label>
       </div>
+
+      <button className="submit-button">
+        수정 완료
+    </button>
     </div>
   );
 };

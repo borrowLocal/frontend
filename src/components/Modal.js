@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import Login from './Login';
-import Register from './Register';
-import FindPassword from './FindPassword';
-import '../styles/LoginModal.css';
+import Login from './Auth/Login';
+import Register from './Auth/Register';
+import FindPassword from './Auth/FindPassword';
+import MyPage from './MyMenu/MyPage';
+import EditProfile from './MyMenu/EditProfile';
+import '../styles/Modal.css';
 
 const AuthModal = () => {
   const navigate = useNavigate();
@@ -35,6 +37,8 @@ const AuthModal = () => {
         {location.pathname === '/login' && <Login onClose={handleClose} />}
         {location.pathname === '/register' && <Register onClose={handleClose} />}
         {location.pathname === '/findPassword' && <FindPassword onClose={handleClose} />}
+        {location.pathname === '/myPage' && <MyPage onClose={handleClose} />}
+        {location.pathname === '/editProfile' && <EditProfile onClose={handleClose} />}
       </div>
     </div>
   );
