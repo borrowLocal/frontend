@@ -4,6 +4,7 @@ import Login from './Auth/Login';
 import Register from './Auth/Register';
 import FindPassword from './Auth/FindPassword';
 import MyPage from './MyMenu/MyPage';
+import ConfirmPW from './MyMenu/ConfirmPW';
 import EditProfile from './MyMenu/EditProfile';
 import '../styles/Modal.css';
 
@@ -38,6 +39,7 @@ const AuthModal = () => {
         {location.pathname === '/register' && <Register onClose={handleClose} />}
         {location.pathname === '/findPassword' && <FindPassword onClose={handleClose} />}
         {location.pathname === '/myPage' && <MyPage onClose={handleClose} />}
+        {location.pathname === '/confirmPW' && <ConfirmPW onClose={handleClose} />}
         {location.pathname === '/editProfile' && <EditProfile onClose={handleClose} />}
       </div>
     </div>

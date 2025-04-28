@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './MyPage.css';
 
@@ -16,7 +16,7 @@ const MyPage = () => {
       <div className="menu-list">
         <hr></hr>
         <div className="menu-item">
-          <Link to="/editProfile" className="menu-link">
+          <Link to="/confirmPW" className="menu-link">
             회원정보 수정
           </Link>
         </div>

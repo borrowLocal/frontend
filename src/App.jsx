@@ -15,7 +15,7 @@ function App() {
             <Route path="register" element={<AuthModal />} />
             <Route path="findPassword" element={<AuthModal />} />
             <Route path="myPage" element={<AuthModal />} />
-            <Route path="review" element={<AuthModal />} />
+            <Route path="confirmPW" element={<AuthModal />} />
             <Route path="editProfile" element={<AuthModal />} />
           </Route>
         </Routes>
