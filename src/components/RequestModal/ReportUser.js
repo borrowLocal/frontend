@@ -11,6 +11,7 @@ const ReportUser = ({ onClose }) => {
         <div className="profile-image"></div>
         <span>{userName}</span>님 과의 거래 후기
       </div>
+      
       <input
         type="textarea"
         className='reportUser-input'

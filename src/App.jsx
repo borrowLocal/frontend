@@ -19,6 +19,7 @@ function App() {
             <Route path="myPage" element={<SideModal />} />
             <Route path="confirmPW" element={<SideModal />} />
             <Route path="editProfile" element={<SideModal />} />
+            <Route path="reviewWrite" element={<SideModal />} />
             <Route path="rentalRequest" element={<RequestModal />} />
             <Route path="review" element={<RequestModal />} />
             <Route path="reportUser" element={<RequestModal />} />
