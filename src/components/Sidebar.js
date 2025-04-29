@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/Sidebar.css';
 
 const Sidebar = () => {
@@ -22,6 +23,15 @@ const Sidebar = () => {
           <li>취미/게임 (악기 등)</li>
           <li>디지털기기 (카메라, 스피커 등)</li>
           <li>기타</li>
+          <li>
+            <Link to="/rentalRequest">대여 신청 팝업</Link>
+          </li>
+          <li>
+            <Link to="/review">유저 평가 팝업</Link>
+          </li>
+          <li>
+            <Link to="/reportUser">유저 신고 팝업</Link>
+          </li>
         </ul>
       </div>
     </aside>
