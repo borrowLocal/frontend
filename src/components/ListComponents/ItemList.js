@@ -1,7 +1,7 @@
 import React from 'react';
-import '../styles/MainContent.css';
+import '../../styles/ItemList.css';
 
-const MainContent = () => {
+const ItemList = () => {
   return (
     <main className="main-content">
       <div className="items-grid">
@@ -17,4 +17,4 @@ const MainContent = () => {
   );
 };
 
-export default MainContent; 
+export default ItemList; 

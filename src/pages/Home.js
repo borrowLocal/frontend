@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Outlet } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
-import MainContent from '../components/MainContent';
+import ItemList from '../components/ListComponents/ItemList';
 import '../styles/Home.css';
 
 const Home = () => {
@@ -29,7 +29,7 @@ const Home = () => {
       
       <div className="content-layout">
         <Sidebar />
-        <MainContent />
+        <ItemList />
       </div>
 
       <Outlet />
