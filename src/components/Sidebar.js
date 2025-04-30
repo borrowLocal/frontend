@@ -24,13 +24,13 @@ const Sidebar = () => {
           <li>디지털기기 (카메라, 스피커 등)</li>
           <li>기타</li>
           <li>
-            <Link to="/rentalRequest">대여 신청 팝업</Link>
+            <Link to="/rentalRequest">(디버깅) 대여 신청 모달</Link>
           </li>
           <li>
-            <Link to="/review">유저 평가 팝업</Link>
+            <Link to="/review">(디버깅) 유저 평가 모달</Link>
           </li>
           <li>
-            <Link to="/reportUser">유저 신고 팝업</Link>
+            <Link to="/reportUser">(디버깅) 유저 신고 모달</Link>
           </li>
         </ul>
       </div>
