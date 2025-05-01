@@ -22,7 +22,9 @@ const MyPage = () => {
         </div>
         <hr></hr>
         <div className="menu-item">
-          <span>대여 내역</span>
+          <Link to="/rentalHistory" className="menu-link">
+            대여 내역
+          </Link>
         </div>
         <hr></hr>
         <div className="menu-item">

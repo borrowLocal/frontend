@@ -9,7 +9,7 @@ const ReportUser = ({ onClose }) => {
     <div className="reportUser-content">
       <div className="profile-section">
         <div className="profile-image"></div>
-        <span>{userName}</span>님 과의 거래 후기
+        <span>{userName}</span>님과의 거래 후기
       </div>
       
       <input

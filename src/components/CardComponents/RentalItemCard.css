@@ -1,0 +1,62 @@
+.rental-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 16px;
+    height: 96px;
+    border-radius: 16px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4);
+    background-color: white;
+    margin-bottom: 16px;
+  }
+  
+  .rental-card.rejected {
+    background-color: #eeeeee;
+    opacity: 0.5;
+  }
+  
+  .left-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .right-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    text-align: right;
+  }
+  
+  .item-name {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .status-text {
+    font-size: 14px;
+    color: #666666;
+  }
+  
+  .info-text {
+    font-size: 14px;
+    color: #444444;
+  }
+  
+  .deposit-text {
+    font-size: 13px;
+    color: green;
+  }
+  
+  .payment-button,
+  .review-button {
+    padding: 6px 20px;
+    border: none;
+    border-radius: 30px;
+    font-size: 14px;
+    color: white;
+    cursor: pointer;
+    background-color: #333;
+    margin: 4px 0;
+  }

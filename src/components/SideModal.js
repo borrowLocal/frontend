@@ -7,6 +7,7 @@ import ResetPW from './Auth/ResetPW';
 import MyPage from './MyMenu/MyPage';
 import ConfirmPW from './MyMenu/ConfirmPW';
 import EditProfile from './MyMenu/EditProfile';
+import RentalHistory from './MyMenu/RentalHistory/RentalHistory';
 import ReviewWrite from './MyMenu/ReviewWrite';
 import '../styles/SideModal.css';
 
@@ -44,6 +45,7 @@ const SideModal = () => {
         {location.pathname === '/myPage' && <MyPage onClose={handleClose} />}
         {location.pathname === '/confirmPW' && <ConfirmPW onClose={handleClose} />}
         {location.pathname === '/editProfile' && <EditProfile onClose={handleClose} />}
+        {location.pathname === '/rentalHistory' && <RentalHistory onClose={handleClose} />}
         {location.pathname === '/reviewWrite' && <ReviewWrite onClose={handleClose} />}
       </div>
     </div>
