@@ -44,7 +44,8 @@ src/
 │   ├── Home.css                 # 홈 페이지 관련 스타일
 │   ├── Sidebar.css              # 사이드바 관련 스타일
 │   └── Onboarding.css           # 온보딩 페이지 관련 스타일
-├── components/                 
+├── components/
+│   ├── CardComponents/          # 카드 형태 컴포넌트 폴더             
 │   ├── ListComponents/          # 리스트(목록) 관련 컴포넌트 폴더
 │   ├── MyMenu/                  # 마이페이지, 내 메뉴 관련 컴포넌트 폴더
 │   ├── RequestModal/            # 대여 신청, 유저 평가, 유저 신고 모달 컴포넌트 폴더
@@ -52,6 +53,7 @@ src/
 │   ├── Header.js                # 상단 헤더(네비게이션 바) 컴포넌트
 │   ├── SideModal.js             # 사이드 모달 컴포넌트
 │   └── Sidebar.js               # 사이드바 컴포넌트
+├── data/                        # mock data 폴더
 ├── App.jsx                      # 전체 앱의 루트 컴포넌트
 ├── App.css                      # 전체 앱의 전역 스타일 파일
 └── index.js                     # React 앱의 진입점(엔트리 포인트)
@@ -74,6 +76,8 @@ src/
 ![pwconfirm](https://github.com/user-attachments/assets/ccf2cfc1-aea7-4622-94e9-35e2cfb37cdb)
 #### 회원정보 수정
 ![accountedit](https://github.com/user-attachments/assets/ffe3598b-5dce-4c03-8d5c-4d1765e0810e)
+#### 대여내역 조회
+![image](https://github.com/user-attachments/assets/d9950951-d2c9-4851-94f3-2d1586444a73)
 #### 리뷰 작성
 ![reviewwirte](https://github.com/user-attachments/assets/14030dda-0530-4076-8807-f12479cce926)
 #### 대여 신청 모달
