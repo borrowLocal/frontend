@@ -32,7 +32,9 @@ const MyPage = () => {
         </div>  
         <hr></hr>       
         <div className="menu-item">
-          <span>등록 물품 관리</span>
+          <Link to="/registeredItem" className="menu-link">
+            등록 물품 관리
+          </Link>
         </div>
         <hr></hr>
         <div className="menu-item">

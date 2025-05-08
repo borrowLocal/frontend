@@ -1,0 +1,108 @@
+.registered-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    background-color: white;
+    border-radius: 20px;
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  
+  .left-section {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .registered-item-image {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 20px;
+    margin-right: 20px;
+    background-color: #f0f0f0; /* Placeholder color */
+  }
+
+  .registered-item-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .item-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+  
+  .price-info,
+  .item-description {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .status-badge {
+    padding: 6px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 20px;
+    color: black;
+    white-space: nowrap;
+  }
+
+  .badge-available,
+  .badge-complete {
+    background-color: #9cecc9;
+  }
+  
+  .badge-requested {
+    background-color: #eae19c;
+  }
+  
+  .badge-renting {
+    background-color: #aae8fd;
+  }
+  
+  .bottom-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  
+  .right-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+  
+  .button-group {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    flex-wrap: nowrap;
+  }
+  
+  button {
+    min-width: 50px;
+    padding: 6px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    flex-shrink: 0; /* 버튼이 줄어들지 않도록 */
+    white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+  }
+
+  .delete-button,
+  .report-button {
+    background-color: #ebac9b;
+    color: black;
+  }
+  
+  .edit-button,
+  .complete-button,
+  .confirm-button,
+  .change-button {
+    background-color: #cfd0d2;
+    color: black;
+  }

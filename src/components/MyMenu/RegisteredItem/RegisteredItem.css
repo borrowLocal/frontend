@@ -1,0 +1,20 @@
+.registered-item-container {
+    margin-top: 5.5rem;
+    padding: 2rem;
+}
+
+.register-button-wrapper {
+    display: flex;
+    justify-content: flex-end; /* 오른쪽 정렬 */
+    padding: 10px;
+  }
+
+.register-item-button {
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
