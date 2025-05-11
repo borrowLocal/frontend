@@ -34,7 +34,7 @@ const RegisteredItemCard = ({
 }) => {
   return (
     <div className="registered-card">
-      <div className="left-section">
+      <div className="register-left-section">
         <div>
           <img
             className="registered-item-image" />
