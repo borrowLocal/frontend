@@ -23,6 +23,7 @@ function App() {
             <Route path="confirmPW" element={<SideModal />} />
             <Route path="editProfile" element={<SideModal />} />
             <Route path="rentalHistory" element={<SideModal />} />
+            <Route path="reviewList" element={<SideModal />} />
             <Route path="registeredItem" element={<RegisteredItem />} />
             <Route path="registeredItem/register" element={<ItemRegister />} />
             <Route path="reviewWrite" element={<SideModal />} />

@@ -1,0 +1,48 @@
+.review-list-view h2 {
+  text-align: center;
+  font-weight: 350;
+  line-height: 1.4;
+  margin: 20px;
+  font-size: 25px;
+}
+
+.review-list-view h2 span {
+  font-weight: bold;
+}
+
+.review-tabs {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 40px;
+  margin-bottom: 25px;
+  border-bottom: 1.5px solid #ccc;
+}
+
+.review-tabs button {
+  flex: 1;
+  padding: 10px 0;
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #bbb;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.review-tabs button.active {
+  color: #000;
+  font-weight: bold;
+}
+
+.review-tabs .indicator {
+  position: absolute;
+  bottom: -1.5px;
+  left: 0;
+  width: 50%;
+  height: 3px;
+  background-color: #000;
+  transition: transform 0.3s ease;
+  z-index: 0;
+}

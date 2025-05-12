@@ -28,7 +28,9 @@ const MyPage = () => {
         </div>
         <hr></hr>
         <div className="menu-item">
-          <span>거래후기 조회</span>
+          <Link to="/reviewList" className="menu-link">
+            거래 후기 조회
+          </Link>
         </div>  
         <hr></hr>       
         <div className="menu-item">
