@@ -1,0 +1,79 @@
+.item-register-container {
+    margin-top: 5.5rem;
+    padding: 2rem;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    padding: 10px;
+  }
+
+.register-cancel-button,
+.register-submit-button {
+    width: 100px;
+    height: 40px;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.register-cancel-button:hover,
+.register-submit-button:hover {
+    background-color: #f0f0f0;
+}
+
+.item-register-main {
+  display: flex;
+  gap: 25px;
+  border-radius: 20px;
+  height: 100%;
+  padding: 3rem;
+  background-color: white;
+}
+
+.item-register-image img {
+  width: 200px;
+  aspect-ratio: 1 / 1;
+  background-color: #dbdbdb;
+  border-radius: 20px;
+}
+
+.item-register-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.row-inputs {
+  display: flex;
+  gap: 10px;
+}
+
+.item-register-form input,
+.item-register-form textarea {
+  padding: 12px;
+  border: 1px solid #333;
+  border-radius: 10px;
+  font-size: 14px;
+  resize: none;
+}
+
+@media (max-width: 768px) {
+  .item-register-main {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .item-register-image,
+  .item-register-form {
+    width: 90%;
+  }
+}

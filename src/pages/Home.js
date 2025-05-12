@@ -9,7 +9,7 @@ const Home = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const location = useLocation();
 
-  const isRegisteredItemPage = location.pathname === '/registeredItem';
+  const isRegisteredItemPage = location.pathname.startsWith('/registeredItem');
 
   return (
     <div className="main-container">
