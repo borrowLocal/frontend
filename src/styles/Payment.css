@@ -1,0 +1,157 @@
+.payment-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 40px;
+    margin-top: 5rem;
+  }
+  
+  .payment-item {
+    width: 43%;
+    padding: 24px;
+    margin-top: 30px;
+  }
+  
+  .item-title {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .item-title img {
+    width: 150px;
+    height: 150px;
+    margin-right: 10px;
+    border-radius: 12px;
+    object-fit: cover;
+    background-color: #4ab0d6;
+  }
+
+  .item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .item-info .owner {
+    font-size: smaller;
+    display: flex;
+    align-items: center;
+    color: #6f6f6f;
+  }
+  
+  .item-info h3 {
+    font-size: 20px;
+    margin: 0;
+  }
+
+  .item-info .price-highlight {
+    font-size: 30px;
+    font-weight: bold;
+  }
+  
+  .item-info .price-sub {
+    font-size: small;
+    margin: 4px 0;
+    color: #6f6f6f;
+  }
+  
+  .item-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 40px;
+  }
+  
+  .detail-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+  }
+  
+  .detail-row span:first-child {
+    width: 100px;
+    text-align: left;
+    color: #555;
+    font-weight: 500;
+  }
+  
+  .detail-row span:last-child {
+    flex: 1;
+    padding-left: 16px;
+    text-align: right;
+    color: #222;
+  } 
+  
+  .payment-card {
+    width: 43%;
+    padding: 24px;
+  }
+  
+  .payment-card h3 {
+    margin: 30px 0px 12px 0px;
+  }
+  
+  .payment-form .form-inline {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .payment-card input {
+    margin: 0;
+  }
+  
+  .address-form-input label {
+    font-weight: 500;
+  }
+  
+  .address-form-input select {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 100%;
+  }
+
+  .form-check {
+    display: flex;
+    align-items: center;
+    margin: 16px;
+  }
+  
+  input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #5ec1e8;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #4ab0d6;
+  }
+
+  @media (max-width: 768px) {
+  .payment-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .payment-item,
+  .payment-card {
+    width: 90%;
+  }
+}
+
+  
