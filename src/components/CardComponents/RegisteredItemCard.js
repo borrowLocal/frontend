@@ -17,6 +17,7 @@ const statusClass = (status) => {
 };
 
 const RegisteredItemCard = ({
+  id,
   itemName,
   currentAmount,
   totalAmount,
@@ -54,7 +55,7 @@ const RegisteredItemCard = ({
           <div className={`status-badge ${statusClass(status)}`}>{status}</div>
 
           {status === "거래 요청" && (
-            <button className="confirm-button" onClick={onConfirm}>확인</button>
+            <button className="confirm-button" onClick={() => onConfirm(id)}>확인</button>
           )}
 
           {status === "거래 완료" && (

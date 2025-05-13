@@ -1,0 +1,21 @@
+.profile-card {
+    padding-left: 20px;
+}
+
+.profile-content {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 5px;
+}
+
+.profile-card-name {
+    color: #000;
+    font-size: 20px;
+    margin-bottom: 2px;
+}
+
+.profile-card-trust {
+    color: #888;
+    font-size: 14px;
+}

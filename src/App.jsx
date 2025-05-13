@@ -6,6 +6,7 @@ import RequestModal from './components/RequestModal/RequestModal';
 import Home from './pages/Home';
 import RegisteredItem from './components/MyMenu/RegisteredItem/RegisteredItem';
 import ItemRegister from './components/MyMenu/RegisteredItem/ItemRegister';
+import RequestItem from './pages/RequestItem';
 import Payment from './pages/Payment';
 import './App.css';
 
@@ -26,6 +27,7 @@ function App() {
             <Route path="reviewList" element={<SideModal />} />
             <Route path="registeredItem" element={<RegisteredItem />} />
             <Route path="registeredItem/register" element={<ItemRegister />} />
+            <Route path="registeredItem/request" element={<RequestItem />} />
             <Route path="reviewWrite" element={<SideModal />} />
             <Route path="rentalRequest" element={<RequestModal />} />
             <Route path="review" element={<RequestModal />} />
