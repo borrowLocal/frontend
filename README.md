@@ -78,8 +78,16 @@ src/
 ![accountedit](https://github.com/user-attachments/assets/ffe3598b-5dce-4c03-8d5c-4d1765e0810e)
 #### 대여내역 조회
 ![image](https://github.com/user-attachments/assets/d9950951-d2c9-4851-94f3-2d1586444a73)
+#### 결제
+![payment](https://github.com/user-attachments/assets/e28d94a9-eb9a-4df2-92e4-f8c5727af016)
 #### 리뷰 작성
 ![reviewwirte](https://github.com/user-attachments/assets/14030dda-0530-4076-8807-f12479cce926)
+#### 등록 물품 조회
+![registered](https://github.com/user-attachments/assets/fd8a5a4a-d206-47c1-87b0-7639590a9376)
+#### 물품 등록
+![register](https://github.com/user-attachments/assets/85f0bc64-9116-4007-a747-f0ada65afdcb)
+#### 거래 후기 조회
+![reviewList](https://github.com/user-attachments/assets/4c441b3c-5cef-4cc5-8757-6c6f6b2939e0)
 #### 대여 신청 모달
 ![rentalrequest](https://github.com/user-attachments/assets/d96f0030-f00a-4e7b-9a20-81205f9c3d68)
 #### 리뷰 작성 모달
