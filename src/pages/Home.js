@@ -18,11 +18,9 @@ const Home = () => {
       {!isRegisteredItemPage && (
         <div className="content-layout">
           <Sidebar />
-          <ItemList />
+          <Outlet />
         </div>
       )}
-
-      <Outlet />
     </div>
   );
 };

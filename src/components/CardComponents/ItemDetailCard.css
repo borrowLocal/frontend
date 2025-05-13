@@ -1,0 +1,111 @@
+.item-detail-card {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  width: 100%;
+  background-color: #fff;
+}
+
+.item-detail-card-image img{
+  width: 180px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  margin-right: 20px;
+}
+
+.item-detail-title-row {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.item-detail-title {
+  font-size: 20px;
+  margin: 0;
+}
+
+.item-detail-title-row button {
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+  color: #ccc;
+  transition: color 0.2s ease;
+  margin-left: 8px;
+  margin-top: -0.5rem;
+}
+
+.favorite-btn.active {
+  color: gold;
+}
+
+.favorite-btn:hover {
+  color: #ffcc00;
+}
+
+.item-detail-card-content {
+  flex: 1;
+}
+
+.item-detail-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.item-detail-price {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.item-detail-price .deposit {
+  color: #888;
+  font-size: 13px;
+  margin-left: 4px;
+}
+
+.item-detail-desc {
+  list-style: none;
+  padding: 0;
+  margin: 25px 0 12px 0;
+  font-size: 13px;
+  color: #333;
+}
+
+.item-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.item-card-actions select {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.item-rent-btn {
+  padding: 9px 15px;
+  background-color: #9dd6ec;
+  color: #000;
+  border: none;
+  border-radius: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+@media (max-width: 900px) {
+  .item-detail-card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .item-detail-card-image,
+  .item-detail-card-content {
+    width: 90%;
+  }
+}

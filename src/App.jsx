@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Onboarding from './pages/Onboarding';
+import ItemList from './components/ListComponents/ItemList';
+import ItemDetail from './pages/ItemDetail';
 import SideModal from './components/SideModal';
 import RequestModal from './components/RequestModal/RequestModal';
 import Home from './pages/Home';
@@ -16,6 +18,8 @@ function App() {
       <div className="app">
         <Routes>
           <Route path="/" element={<Home />}>
+            <Route index element={<ItemList />} />
+            <Route path="item/:id" element={<ItemDetail />} />  
             <Route path="login" element={<SideModal />} />
             <Route path="register" element={<SideModal />} />
             <Route path="findPassword" element={<SideModal />} />

@@ -11,7 +11,7 @@
   background-color: white;
 }
 
-h3 {
+.request-item-detail-container h3 {
     font-weight: 300;
     padding: 20px;
 }
