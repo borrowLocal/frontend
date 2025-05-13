@@ -55,6 +55,12 @@ const MyPage = () => {
           </Link>
         </div>
         <hr></hr>
+        <div className="menu-item">
+          <Link to="/onboarding" className="menu-link">
+            온보딩(디버깅)
+          </Link>
+        </div>
+        <hr></hr>
       </div>
 
       <button className="logout-button">

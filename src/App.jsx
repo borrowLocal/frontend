@@ -37,6 +37,7 @@ function App() {
             <Route path="review" element={<RequestModal />} />
             <Route path="reportUser" element={<RequestModal />} />
           </Route>
+          <Route path="/onboarding" element={<Onboarding />} />
           <Route path="/payment" element={<Payment />} />
         </Routes>
       </div>
