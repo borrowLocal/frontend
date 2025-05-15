@@ -60,8 +60,12 @@ src/
 ```
 
 ## 구현 화면
+#### 온보딩
+![onboarding](https://github.com/user-attachments/assets/9ff8999e-c213-40b7-9144-910ed1518f13)
 #### 홈
-![home](https://github.com/user-attachments/assets/d595b5b7-57f9-4006-8c72-0257e6d3d16c)
+![home](https://github.com/user-attachments/assets/7f1e4355-149c-4376-91f2-a3ad4c10860b)
+#### 물품 정보 상세 조회
+![itemDetail](https://github.com/user-attachments/assets/e354d6f5-dc1e-439a-9b39-85cea677ec1a)
 #### 로그인
 ![login](https://github.com/user-attachments/assets/71d1537a-bb4c-4233-aedf-5a6dbbd32374)
 #### 회원가입
@@ -85,7 +89,9 @@ src/
 #### 등록 물품 조회
 ![registered](https://github.com/user-attachments/assets/fd8a5a4a-d206-47c1-87b0-7639590a9376)
 #### 물품 등록
-![register](https://github.com/user-attachments/assets/85f0bc64-9116-4007-a747-f0ada65afdcb)
+![register](https://github.com/user-attachments/assets/56df26c5-e723-4713-9aa2-d7d01ef8971f)
+#### 대여 요청 조회
+![requestItem](https://github.com/user-attachments/assets/0612e566-f861-49d3-bcef-2b693b9bc8ff)
 #### 거래 후기 조회
 ![reviewList](https://github.com/user-attachments/assets/4c441b3c-5cef-4cc5-8757-6c6f6b2939e0)
 #### 대여 신청 모달
