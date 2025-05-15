@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import './Auth.css';
 
 const Register = () => {
-  const [userName, setUserName] = useState('');
+  const [realName, seRealName] = useState('');
   const [nickName, setNickName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPW, setConfirmPW] = useState('');
-  const [bDay, setBDay] = useState('');
+  const [birthDate, setBirthDate] = useState('');
 
   return (
     <div className="register-form">
@@ -16,8 +16,8 @@ const Register = () => {
       <input
         type="text"
         placeholder="이름"
-        value={userName}
-        onChange={(e) => setUserName(e.target.value)}
+        value={realName}
+        onChange={(e) => seRealName(e.target.value)}
       />
       <input
         type="text"
@@ -49,8 +49,8 @@ const Register = () => {
       <input
         type="date"
         placeholder="생년월일"
-        value={bDay}
-        onChange={(e) => setBDay(e.target.value)}
+        value={birthDate}
+        onChange={(e) => setBirthDate(e.target.value)}
       />
       <button className="submit-button">회원가입</button>
       <div className="form-footer">

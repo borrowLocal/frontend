@@ -1,15 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './MyPage.css';
 
+const mockData = {
+  nickName: '성북구 헌터',
+  rating: 8,
+};
+
 const MyPage = () => {
+  const [nickName, setNickName] = useState('');
+  const [rating, setRating] = useState(0);
+  
+    useEffect(() => {
+      setNickName(mockData.nickName);
+      setRating(mockData.rating);
+    }, []);
+
   return (  
     <div className='mypage-container'>
       <div className="profile-section">
         <div className="profile-image"></div>
         <div className="profile-info">
-          <h2>사용자 님</h2>
-          <p>신뢰도 ★ (8/9)</p>
+          <p className='profile-nickName'><strong>{nickName}</strong> 님</p>
+          <p className='profile-rating'>신뢰도 ★ ({rating}/9)</p>
         </div>
       </div>
 

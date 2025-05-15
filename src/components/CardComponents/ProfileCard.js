@@ -2,17 +2,17 @@ import React, { useState, useEffect } from 'react';
 import './ProfileCard.css';
 
 const mockData = {
-  name: '성북구 헌터',
-  trust: 8,
+  nickName: '성북구 헌터',
+  rating: 8,
 };
 
 const ProfileCard = () => {
-  const [name, setName] = useState('');
-  const [trust, setTrust] = useState(0);
+  const [nickName, setNickName] = useState('');
+  const [rating, setRating] = useState(0);
 
   useEffect(() => {
-    setName(mockData.name);
-    setTrust(mockData.trust);
+    setNickName(mockData.nickName);
+    setRating(mockData.rating);
   }, []);
 
   return (
@@ -20,8 +20,8 @@ const ProfileCard = () => {
       <div className="profile-content">
         <img className="profile-image" />
         <div>
-          <p className="profile-card-name"><strong>{name}</strong>님</p>
-          <p className="profile-card-trust">신뢰도: ★ ({trust}/9)</p>
+          <p className="profile-card-name"><strong>{nickName}</strong>님</p>
+          <p className="profile-card-trust">신뢰도: ★ ({rating}/9)</p>
         </div>
       </div>
     </div>

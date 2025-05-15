@@ -5,13 +5,12 @@ import './NotiToggle.css';
 
 const Register = () => {
   const navigate = useNavigate();
-  const [userName, setUserName] = useState('');
+  const [realName, setRealName] = useState('');
   const [nickName, setNickName] = useState('');
   const [password, setPassword] = useState('');
   const [newPW, setNewPW] = useState('');
   const [confirmPW, setConfirmPW] = useState('');
-  const [bDay, setBDay] = useState('');
-  const [notifications, setNotifications] = useState(false);
+  const [birthDate, setBirthDate] = useState('');
 
   return (
     <div className="editProfile-form">
@@ -19,8 +18,8 @@ const Register = () => {
       <input
         type="text"
         placeholder="이름"
-        value={userName}
-        onChange={(e) => setUserName(e.target.value)}
+        value={realName}
+        onChange={(e) => setRealName(e.target.value)}
       />
       <input
         type="text"
@@ -52,22 +51,9 @@ const Register = () => {
       <input
         type="date"
         placeholder="생년월일"
-        value={bDay}
-        onChange={(e) => setBDay(e.target.value)}
-      />
-      
-      <div className="notification-setting">
-        <span>알림 설정</span>
-        <label className="toggle-switch">
-          <input
-            type="checkbox"
-            checked={notifications}
-            onChange={() => setNotifications(!notifications)}
-          />
-          <span className="toggle-slider"></span>
-        </label>
-      </div>
-
+        value={birthDate}
+        onChange={(e) => setBirthDate(e.target.value)}
+      />    
       <button className="submit-button" onClick={() => navigate('/myPage')}>
         수정 완료
     </button>

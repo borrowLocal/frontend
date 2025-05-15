@@ -1,7 +1,5 @@
 .item-register-container {
-    margin-top: 8rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding: 2rem 2rem 0rem 2rem;
 }
 
 .form-buttons {
@@ -34,7 +32,7 @@
   display: flex;
   gap: 25px;
   border-radius: 20px 20px 0px 0px;
-  min-height: calc(100vh - 12.5rem);
+  min-height: calc(100vh - 2rem);
   margin-bottom: 0%;
   padding: 3rem;
   background-color: white;
