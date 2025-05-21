@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ReviewCardList from '../../ListComponents/ReviewCardList';
+import ReviewCardList from '../../lists/ReviewCardList';
 import './ReviewList.css';
 
 const ReviewList = ({ onClose }) => {

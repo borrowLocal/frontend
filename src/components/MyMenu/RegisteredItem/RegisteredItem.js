@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import RegisteredItemList from '../../ListComponents/RegisteredItemList';
+import RegisteredItemList from '../../lists/RegisteredItemList';
 import './RegisteredItem.css';
 
 const RegisteredItem = () => {

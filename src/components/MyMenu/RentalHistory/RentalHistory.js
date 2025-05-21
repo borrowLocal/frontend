@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import RentalItemList from '../../ListComponents/RentalItemList';
+import RentalItemList from '../../lists/RentalItemList';
 import './RentalHistory.css';
 
 const RentalHistory = ({ onClose }) => {
