@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import "./ItemDetailCard.css";
+import { useState } from "react";
+import "./styles/ItemDetailCard.css"; // Assuming you have a CSS file for styles
 
 const ItemDetailCard = ({ onAccept, onReject }) => {
   const [isFavorite, setIsFavorite] = useState(false);

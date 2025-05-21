@@ -1,5 +1,4 @@
-import React from "react";
-import "./RegisteredItemCard.css";
+import "./styles/RegisteredItemCard.css";
 
 const statusClass = (status) => {
   switch (status) {

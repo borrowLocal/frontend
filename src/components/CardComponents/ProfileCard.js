@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './ProfileCard.css';
+import './styles/ProfileCard.css';
 
 const mockData = {
   nickName: '성북구 헌터',

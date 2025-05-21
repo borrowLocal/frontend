@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import useGeoLocation from '../service/useGeoLocation';
-import useCityName from '../service/useCityName';
+import useGeoLocation from '../hooks/useGeoLocation';
+import useCityName from '../hooks/useCityName';
 import '../styles/Sidebar.css';
 
 const Sidebar = () => {

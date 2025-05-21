@@ -1,5 +1,4 @@
-import React from "react";
-import "./RequestItemCard.css";
+import "./styles/RequestItemCard.css";
 
 const RequestItemCard = ({ item, onAccept, onReject }) => {
   return (

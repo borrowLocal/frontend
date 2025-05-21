@@ -1,6 +1,5 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./RentalItemCard.css";
+import "./styles/RentalItemCard.css";
 
 const RentalItemCard = ({
   itemName,
