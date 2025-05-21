@@ -1,8 +1,8 @@
 import React from "react";
 import { useSearchParams } from "react-router-dom";
 import registeredItems from "../data/registeredItemsData.json";
-import RequestItemCard from "../components/CardComponents/RequestItemCard";
-import ProfileCard from "../components/CardComponents/ProfileCard";
+import RequestItemCard from "../components/cards/RequestItemCard";
+import ProfileCard from "../components/cards/ProfileCard";
 import "../styles/RequestItem.css";
 
 const RequestItem = () => {

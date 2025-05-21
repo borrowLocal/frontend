@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Onboarding from './pages/Onboarding';
-import ItemList from './components/ListComponents/ItemList';
+import ItemList from './components/lists/ItemList';
 import ItemDetail from './pages/ItemDetail';
 import SideModal from './components/SideModal';
 import RequestModal from './components/RequestModal/RequestModal';

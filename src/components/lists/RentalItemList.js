@@ -1,5 +1,5 @@
 import React from "react";
-import RentalItemCard from "../CardComponents/RentalItemCard";
+import RentalItemCard from "../cards/RentalItemCard";
 import rentalData from "../../data/mockRentalData.json";
 
 const RentalItemList = () => {

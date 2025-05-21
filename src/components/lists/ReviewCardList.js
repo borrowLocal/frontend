@@ -1,5 +1,5 @@
 import React from "react";
-import ReviewCard from "../CardComponents/ReviewCard";
+import ReviewCard from "../cards/ReviewCard";
 import mockReviewData from "../../data/mockReviewData.json";
 
 const ReviewCardList = ({ type }) => {

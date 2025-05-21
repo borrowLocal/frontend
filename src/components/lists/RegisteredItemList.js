@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import RegisteredItemCard from "../CardComponents/RegisteredItemCard";
+import RegisteredItemCard from "../cards/RegisteredItemCard";
 import registeredItems from "../../data/registeredItemsData.json";
 
 const RegisteredItemList = () => {
