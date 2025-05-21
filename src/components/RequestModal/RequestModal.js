@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import RentalRequest from './RentalRequest';
-import Review from './Review'; 
+import ReviewWrite from '../MyMenu/ReviewWrite';
 import ReportUser from './ReportUser';
 import './RequestModal.css';
 
@@ -33,7 +33,7 @@ const RequestModal = () => {
       <div className="request-modal-content" onClick={e => e.stopPropagation()}>
         <button className="close-button" onClick={handleClose}>×</button>
         {location.pathname === '/rentalRequest' && <RentalRequest onClose={handleClose} />}
-        {location.pathname === '/review' && <Review onClose={handleClose} />}
+        {location.pathname === '/review' && <ReviewWrite onClose={handleClose} />}
         {location.pathname === '/reportUser' && <ReportUser onClose={handleClose} />}
       </div>
     </div>

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../Auth/Auth.css';
-import './NotiToggle.css';
+import './Auth.css';
 
 const Register = () => {
   const navigate = useNavigate();

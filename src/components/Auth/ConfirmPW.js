@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom';
-import '../Auth/Auth.css';
+import './Auth.css';
 
 const ConfirmPW = () => {
   const navigate = useNavigate();
