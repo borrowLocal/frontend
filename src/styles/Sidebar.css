@@ -22,11 +22,19 @@
 .menu-section li {
   padding: 0.5rem 0;
   cursor: pointer;
-  color: #333;
-  transition: all 0.3s ease;
 }
 
 .menu-section li:hover {
   font-weight: bold;
-  transform: translateX(2px);
+}
+
+.location-message {
+  color: #666;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.location-message.error {
+  color: #dc3545;
 }

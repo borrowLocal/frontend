@@ -1,14 +1,39 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useGeoLocation from '../service/useGeoLocation';
+import useCityName from '../service/useCityName';
 import '../styles/Sidebar.css';
 
 const Sidebar = () => {
+  const geoLocation = useGeoLocation();
+  const cityInfo = useCityName(geoLocation.coordinates || null);
+
+  const renderLocationInfo = () => {
+    if (!geoLocation.loaded) {
+      return <li className="location-message">위치 정보를 가져오는 중...</li>;
+    }
+
+    if (geoLocation.error) {
+      return <li className="location-message error">설정에서 위치 권한을 허용해주세요</li>;
+    }
+
+    if (!cityInfo.loaded) {
+      return <li className="location-message">주소 정보를 가져오는 중...</li>;
+    }
+
+    if (cityInfo.error) {
+      return <li className="location-message error">주소 정보를 가져오는데 실패했습니다</li>;
+    }
+
+    return <li className="active">🚩 {cityInfo.district}</li>;
+  };
+
   return (
     <aside className="sidebar">
       <div className="menu-section">
         <h3>우리 동네</h3>
         <ul>
-          <li className="active">🚩 월곡동</li>
+          {renderLocationInfo()}
         </ul>
       </div>
       
