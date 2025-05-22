@@ -48,15 +48,6 @@ const Sidebar = () => {
           <li>취미/게임 (악기 등)</li>
           <li>디지털기기 (카메라, 스피커 등)</li>
           <li>기타</li>
-          <li>
-            <Link to="/rentalRequest">(디버깅) 대여 신청 모달</Link>
-          </li>
-          <li>
-            <Link to="/review">(디버깅) 유저 평가 모달</Link>
-          </li>
-          <li>
-            <Link to="/reportUser">(디버깅) 유저 신고 모달</Link>
-          </li>
         </ul>
       </div>
     </aside>

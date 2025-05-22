@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import "./styles/RentalItemCard.css";
 
 const RentalItemCard = ({
@@ -9,9 +8,9 @@ const RentalItemCard = ({
   returnDate,
   depositAmount,
   paymentAmount,
+  onPaymentClick,
   onReviewClick
 }) => {
-  const navigate = useNavigate();
   const isRejected = status === "거절";
 
   return (
@@ -27,7 +26,7 @@ const RentalItemCard = ({
         )}
 
         {status === "결제 요청" && paymentAmount && (
-          <button className="payment-button" onClick={() => navigate('/payment')}>
+          <button className="payment-button" onClick={onPaymentClick}>
             {paymentAmount.toLocaleString()}원<br/>결제 ▶
           </button>
         )}

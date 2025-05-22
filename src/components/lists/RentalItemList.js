@@ -1,8 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import RentalItemCard from "../cards/RentalItemCard";
 import rentalData from "../../data/mockRentalData.json";
 
 const RentalItemList = () => {
+  const navigate = useNavigate();
+
   return (
     <div>
       {rentalData.map((rental, index) => (
@@ -11,12 +14,12 @@ const RentalItemList = () => {
           {...rental}
           onPaymentClick={
             rental.status === "결제 요청"
-              ? () => alert("결제 페이지로 이동")
+              ? () => navigate('/payment')
               : undefined
           }
           onReviewClick={
             rental.status === "거래 완료"
-              ? () => alert("후기 작성 페이지로 이동")
+              ? () => navigate('/reviewWrite')
               : undefined
           }
         />

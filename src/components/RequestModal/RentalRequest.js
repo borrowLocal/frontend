@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import './RequestModal.css';
 
 const RentalRequest = ({ onClose }) => {
+  const locationState = useLocation();
+  const initialQuantity = locationState.state?.quantity || 1;
+  
   const [itemName, setItemName] = useState('텐트');
-  const [quantity, setQuantity] = useState(2);
+  const [quantity, setQuantity] = useState(initialQuantity);
   const [rentalPeriod, setRentalPeriod] = useState({start: '', end: ''});
   const [rentalDateTime, setRentalDateTime] = useState({date: '', time: ''});
   const [returnDateTime, setReturnDateTime] = useState({date: '', time: ''});

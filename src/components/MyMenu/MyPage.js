@@ -63,12 +63,6 @@ const MyPage = () => {
         </div>
         <hr></hr>
         <div className="menu-item">
-          <Link to="/reviewWrite" className="menu-link">
-            후기 작성(디버깅)
-          </Link>
-        </div>
-        <hr></hr>
-        <div className="menu-item">
           <Link to="/onboarding" className="menu-link">
             온보딩(디버깅)
           </Link>

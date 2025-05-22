@@ -1,11 +1,23 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./styles/ItemDetailCard.css"; // Assuming you have a CSS file for styles
 
 const ItemDetailCard = ({ onAccept, onReject }) => {
+  const navigate = useNavigate();
   const [isFavorite, setIsFavorite] = useState(false);
+  const [selectedQuantity, setSelectedQuantity] = useState(1);
 
   const toggleFavorite = () => {
     setIsFavorite(prev => !prev);
+  };
+
+  const handleQuantityChange = (e) => {
+    const quantity = parseInt(e.target.value);
+    setSelectedQuantity(quantity);
+  };
+
+  const handleRentalRequest = () => {
+    navigate('/rentalRequest', { state: { quantity: selectedQuantity } });
   };
 
   return (
@@ -35,12 +47,12 @@ const ItemDetailCard = ({ onAccept, onReject }) => {
           텐트 의자도 필요하시면 같이 대여해드립니다.
         </p>
         <div className="item-card-actions">
-          <select>
-            <option>1개</option>
-            <option>2개</option>
-            <option>3개</option>
+          <select value={selectedQuantity} onChange={handleQuantityChange}>
+            <option value={1}>1개</option>
+            <option value={2}>2개</option>
+            <option value={3}>3개</option>
           </select>
-          <button className="item-rent-btn">대여 신청</button>
+          <button className="item-rent-btn" onClick={handleRentalRequest}>대여 신청</button>
         </div>
       </div>
     </div>

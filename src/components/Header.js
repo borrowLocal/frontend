@@ -7,7 +7,7 @@ const Header = ({ searchQuery, setSearchQuery }) => {
 
   return (
     <header className="header">
-      <div className="logo">BOROLO</div>
+      <div className="logo" onClick={() => navigate('/')}>BOROLO</div>
       <div className="search-bar">
         <input 
           type="text" 

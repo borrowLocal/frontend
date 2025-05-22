@@ -19,8 +19,8 @@ const RegisteredItemList = () => {
           onEdit={() => alert("수정")}
           onDelete={() => alert("삭제")}
           onConfirm={() => handleConfirm(item.id)}
-          onComplete={() => alert("완료")}
-          onReport={() => alert("신고")}
+          onComplete={() => navigate('/review')}
+          onReport={() => navigate('/reportUser')}
           onChangeToAvailable={() => alert("거래 가능으로 변경")}
         />
       ))}
