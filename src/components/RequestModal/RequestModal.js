@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
 import RentalRequest from './RentalRequest';
 import ReviewWrite from '../MyMenu/ReviewWrite';
 import ReportUser from './ReportUser';
 import './RequestModal.css';
 
-const RequestModal = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
+const RequestModal = ({ onClose, type, quantity }) => {
   const [isClosing, setIsClosing] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -21,8 +18,21 @@ const RequestModal = () => {
     setIsClosing(true);
     setIsOpen(false);
     setTimeout(() => {
-      navigate('/');
+      onClose();
     }, 300);
+  };
+
+  const renderContent = () => {
+    switch (type) {
+      case 'rental':
+        return <RentalRequest onClose={handleClose} quantity={quantity} />;
+      case 'review':
+        return <ReviewWrite onClose={handleClose} />;
+      case 'report':
+        return <ReportUser onClose={handleClose} />;
+      default:
+        return null;
+    }
   };
 
   return (
@@ -32,9 +42,7 @@ const RequestModal = () => {
     >
       <div className="request-modal-content" onClick={e => e.stopPropagation()}>
         <button className="close-button" onClick={handleClose}>×</button>
-        {location.pathname === '/rentalRequest' && <RentalRequest onClose={handleClose} />}
-        {location.pathname === '/review' && <ReviewWrite onClose={handleClose} />}
-        {location.pathname === '/reportUser' && <ReportUser onClose={handleClose} />}
+        {renderContent()}
       </div>
     </div>
   );
