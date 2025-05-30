@@ -24,11 +24,15 @@ const SideModal = () => {
     });
   }, []);
 
+  const handleGoBack = () => {
+    navigate(-1);
+  };
+
   const handleClose = () => {
     setIsClosing(true);
     setIsOpen(false);
     setTimeout(() => {
-      navigate('/');
+      navigate('/', { state: { background: location.state?.background || location } });
     }, 300);
   };
 
@@ -38,7 +42,12 @@ const SideModal = () => {
       onClick={handleClose}
     >
       <div className="modal-content" onClick={e => e.stopPropagation()}>
-        <button className="close-button" onClick={handleClose}>×</button>
+        <button className="back-button" onClick={handleGoBack}>
+          ◀ 뒤로가기
+        </button>
+        <button className="close-button" onClick={handleClose}>
+          ×
+        </button>
         {location.pathname === '/login' && <Login onClose={handleClose} />}
         {location.pathname === '/register' && <Register onClose={handleClose} />}
         {location.pathname === '/findPassword' && <FindPassword onClose={handleClose} />}

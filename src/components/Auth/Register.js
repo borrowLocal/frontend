@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './Auth.css';
 
 const Register = () => {
@@ -9,7 +9,8 @@ const Register = () => {
   const [password, setPassword] = useState('');
   const [confirmPW, setConfirmPW] = useState('');
   const [birthDate, setBirthDate] = useState('');
-
+  const location = useLocation();
+  
   return (
     <div className="register-form">
       <h2>회원가입</h2>
@@ -54,7 +55,7 @@ const Register = () => {
       />
       <button className="submit-button">회원가입</button>
       <div className="form-footer">
-        <Link to="/login" className="text-button">
+        <Link to="/login" state={{ background: location.state?.background || location }} className="text-button">
           로그인으로 돌아가기
         </Link>
       </div>

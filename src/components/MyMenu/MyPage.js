@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './MyPage.css';
 
 const mockData = {
@@ -10,7 +10,7 @@ const mockData = {
 const MyPage = () => {
   const [nickName, setNickName] = useState('');
   const [rating, setRating] = useState(0);
-  
+  const location = useLocation();
     useEffect(() => {
       setNickName(mockData.nickName);
       setRating(mockData.rating);
@@ -29,19 +29,19 @@ const MyPage = () => {
       <div className="menu-list">
         <hr></hr>
         <div className="menu-item">
-          <Link to="/confirmPW" className="menu-link">
+          <Link to="/confirmPW" state={{ background: location.state?.background || location }} className="menu-link">
             회원정보 수정
           </Link>
         </div>
         <hr></hr>
         <div className="menu-item">
-          <Link to="/rentalHistory" className="menu-link">
+          <Link to="/rentalHistory" state={{ background: location.state?.background || location }} className="menu-link">
             대여 내역
           </Link>
         </div>
         <hr></hr>
         <div className="menu-item">
-          <Link to="/reviewList" className="menu-link">
+          <Link to="/reviewList" state={{ background: location.state?.background || location }} className="menu-link">
             거래 후기 조회
           </Link>
         </div>  
@@ -57,7 +57,7 @@ const MyPage = () => {
         </div>
         <hr></hr>
         <div className="menu-item">
-          <Link to="/login" className="menu-link">
+          <Link to="/login" state={{ background: location.state?.background || location }} className="menu-link">
             로그인(디버깅)
           </Link>
         </div>

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import '../Auth/Auth.css';
 
 const ResetPW = () => {
   const navigate = useNavigate();
   const [newPW, setNewPW] = useState('');
   const [newPWConfirm, setNewPWConfirm] = useState('');
+  const location = useLocation();
 
   return (
     <div className="resetPW-form">
@@ -22,7 +23,7 @@ const ResetPW = () => {
         value={newPWConfirm}
         onChange={(e) => setNewPWConfirm(e.target.value)}
       />
-      <button className="submit-button" onClick={() => navigate('/login')}>확인</button>
+      <button className="submit-button" onClick={() => navigate('/login', { state: { background: location.state?.background || location } })}>확인</button>
     </div>
   );
 };

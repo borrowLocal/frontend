@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Onboarding from './pages/Onboarding';
 import ItemList from './components/lists/ItemList';
 import ItemDetail from './pages/ItemDetail';
@@ -12,34 +12,46 @@ import RequestItem from './pages/RequestItem';
 import Payment from './pages/Payment';
 import './App.css';
 
+function AppRoutes() {
+  const location = useLocation();
+  const state = location.state;
+  const background = state && state.background;
+
+  // 사이드 모달이 필요한 경로 목록
+  const modalRoutes = [
+    '/login', '/register', '/findPassword', '/resetPW', '/myPage', '/confirmPW',
+    '/editProfile', '/rentalHistory', '/reviewList', '/reviewWrite'
+  ];
+
+  // 현재 경로가 모달 경로인지 확인
+  const isModal = modalRoutes.includes(location.pathname);
+
+  return (
+    <>
+      <Routes location={background || location}>
+        <Route path="/" element={<Home />}>
+          <Route index element={<ItemList />} />
+          <Route path="item/:id" element={<ItemDetail />} />
+          <Route path="registeredItem" element={<RegisteredItem />} />
+          <Route path="registeredItem/register" element={<ItemRegister />} />
+          <Route path="registeredItem/request" element={<RequestItem />} />
+          <Route path="rentalRequest" element={<RequestModal />} />
+          <Route path="review" element={<RequestModal />} />
+          <Route path="reportUser" element={<RequestModal />} />
+        </Route>
+        <Route path="/onboarding" element={<Onboarding />} />
+        <Route path="/payment" element={<Payment />} />
+      </Routes>
+      {isModal && <SideModal />}
+    </>
+  );
+}
+
 function App() {
   return (
     <Router>
       <div className="app">
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<ItemList />} />
-            <Route path="item/:id" element={<ItemDetail />} />  
-            <Route path="login" element={<SideModal />} />
-            <Route path="register" element={<SideModal />} />
-            <Route path="findPassword" element={<SideModal />} />
-            <Route path="resetPW" element={<SideModal />} />
-            <Route path="myPage" element={<SideModal />} />
-            <Route path="confirmPW" element={<SideModal />} />
-            <Route path="editProfile" element={<SideModal />} />
-            <Route path="rentalHistory" element={<SideModal />} />
-            <Route path="reviewList" element={<SideModal />} />
-            <Route path="registeredItem" element={<RegisteredItem />} />
-            <Route path="registeredItem/register" element={<ItemRegister />} />
-            <Route path="registeredItem/request" element={<RequestItem />} />
-            <Route path="reviewWrite" element={<SideModal />} />
-            <Route path="rentalRequest" element={<RequestModal />} />
-            <Route path="review" element={<RequestModal />} />
-            <Route path="reportUser" element={<RequestModal />} />
-          </Route>
-          <Route path="/onboarding" element={<Onboarding />} />
-          <Route path="/payment" element={<Payment />} />
-        </Routes>
+        <AppRoutes />
       </div>
     </Router>
   );

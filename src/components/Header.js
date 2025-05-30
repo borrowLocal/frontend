@@ -1,9 +1,10 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import '../styles/Home.css';
 
 const Header = ({ searchQuery, setSearchQuery }) => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <header className="header">
@@ -17,7 +18,10 @@ const Header = ({ searchQuery, setSearchQuery }) => {
         />
       </div>
       <nav>
-        <button className="nav-button" onClick={() => navigate('/myPage')}>
+        <button
+          className="nav-button"
+          onClick={() => navigate('/myPage', { state: { background: location.state?.background || location } })}
+        >
           ☰
         </button>
       </nav>

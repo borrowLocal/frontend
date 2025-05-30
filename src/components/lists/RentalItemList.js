@@ -1,11 +1,11 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import RentalItemCard from "../cards/RentalItemCard";
 import rentalData from "../../data/mockRentalData.json";
 
 const RentalItemList = () => {
   const navigate = useNavigate();
-
+  const location = useLocation();
   return (
     <div>
       {rentalData.map((rental, index) => (
@@ -19,7 +19,7 @@ const RentalItemList = () => {
           }
           onReviewClick={
             rental.status === "거래 완료"
-              ? () => navigate('/reviewWrite')
+              ? () => navigate('/reviewWrite', { state: { background: location.state?.background || location } })
               : undefined
           }
         />

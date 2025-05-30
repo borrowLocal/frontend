@@ -1,17 +1,18 @@
 import React from 'react';
-import { useNavigate, Outlet } from 'react-router-dom';
+import { useNavigate, Outlet, useLocation } from 'react-router-dom';
 import heroImg from '../assets/heroImg.png';
 import '../styles/Onboarding.css';
 
 const Onboarding = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   
   return (
     <div className="main-container">
       <header className="header">
         <div className="logo"> BOROLO </div>
         <nav>
-          <button className="nav-button" onClick={() => navigate('/login')}>
+          <button className="nav-button" onClick={() => navigate('/login', { state: { background: location.state?.background || location } })}>
             ☰
           </button>
         </nav>

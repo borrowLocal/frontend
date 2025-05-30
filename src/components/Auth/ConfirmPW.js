@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'
-import { Link } from 'react-router-dom';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 import './Auth.css';
 
 const ConfirmPW = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [password, setPassword] = useState('');
 
   return (
@@ -16,9 +16,9 @@ const ConfirmPW = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button className="submit-button" onClick={() => navigate('/editProfile')}>확인</button>
+      <button className="submit-button" onClick={() => navigate('/editProfile', { state: { background: location.state?.background || location } })}>확인</button>
       <div className="form-footer">
-        <Link to="/findPassword" className="text-button">
+        <Link to="/findPassword" state={{ background: location.state?.background || location }} className="text-button">
           비밀번호 찾기
         </Link>
       </div>
