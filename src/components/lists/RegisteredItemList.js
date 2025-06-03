@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import RegisteredItemCard from "../cards/RegisteredItemCard";
 import RequestModal from "../RequestModal/RequestModal";
+import { useNavigate } from "react-router-dom";
 import registeredItems from "../../data/registeredItemsData.json";
 
 const RegisteredItemList = () => {
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState('');
-  const [selectedItemId, setSelectedItemId] = useState(null);
+  const navigate = useNavigate();
 
   const handleConfirm = (id) => {
-    setSelectedItemId(id);
-    setModalType('rental');
-    setShowModal(true);
+    navigate(`/registeredItem/request?id=${id}`);
   };
 
   const handleReview = () => {

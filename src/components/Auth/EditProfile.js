@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import './Auth.css';
 
 const Register = () => {
@@ -10,6 +11,30 @@ const Register = () => {
   const [newPW, setNewPW] = useState('');
   const [confirmPW, setConfirmPW] = useState('');
   const [birthDate, setBirthDate] = useState('');
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+
+  const handleDeleteAccount = async () => {
+    setShowDeleteConfirm(true);
+  };
+
+  const confirmDelete = async () => {
+    try {
+      const userId = localStorage.getItem('userId');
+      const response = await axios.delete(`http://localhost:8080/users/${userId}`);
+      
+      if (response.status === 200) {
+        localStorage.removeItem('userId');
+        navigate('/');
+      }
+    } catch (error) {
+      console.error('회원 탈퇴 실패:', error);
+      alert('회원 탈퇴에 실패했습니다.');
+    }
+  };
+
+  const cancelDelete = () => {
+    setShowDeleteConfirm(false);
+  };
 
   return (
     <div className="editProfile-form">
@@ -55,7 +80,23 @@ const Register = () => {
       />    
       <button className="submit-button" onClick={() => navigate('/myPage')}>
         수정 완료
-    </button>
+      </button>
+      <div className="form-footer">
+        <button className="text-button" onClick={handleDeleteAccount}>
+          회원 탈퇴
+        </button>
+      </div>
+      {showDeleteConfirm && (
+        <div className="delete-confirm-modal">
+          <div className="delete-confirm-content">
+            <p>정말로 탈퇴하시겠습니까?</p>
+            <div className="delete-confirm-buttons">
+              <button className="confirm-button" onClick={confirmDelete}>네</button>
+              <button className="cancel-button" onClick={cancelDelete}>아니오</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

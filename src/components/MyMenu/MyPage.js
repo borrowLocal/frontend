@@ -4,7 +4,7 @@ import axios from 'axios';
 import './MyPage.css';
 
 const mockData = {
-  nickName: '성북구 헌터',
+  nickName: '여의도 주술사',
   rating: 8,
 };
 
@@ -13,7 +13,7 @@ const MyPage = () => {
   const [rating, setRating] = useState(0);
   const location = useLocation();
   const navigate = useNavigate();
-  
+
     useEffect(() => {
       setNickName(mockData.nickName);
       setRating(mockData.rating);

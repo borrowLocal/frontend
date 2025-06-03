@@ -52,3 +52,52 @@ h2 {
     cursor: pointer;
     text-decoration: none;
   }
+
+  .delete-confirm-modal {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .delete-confirm-content {
+    background-color: white;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .delete-confirm-content p {
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+
+  .delete-confirm-buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+  }
+
+  .delete-confirm-buttons button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .confirm-button {
+    background-color: #ff4444;
+    color: white;
+  }
+
+  .cancel-button {
+    background-color: #e0e0e0;
+    color: #333;
+  }
