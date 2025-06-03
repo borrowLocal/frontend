@@ -61,42 +61,63 @@ src/
 
 ## 구현 화면
 #### 온보딩
-![onboarding](https://github.com/user-attachments/assets/9ff8999e-c213-40b7-9144-910ed1518f13)
-#### 홈
-![home](https://github.com/user-attachments/assets/7f1e4355-149c-4376-91f2-a3ad4c10860b)
-#### 물품 정보 상세 조회
-![itemDetail](https://github.com/user-attachments/assets/e354d6f5-dc1e-439a-9b39-85cea677ec1a)
+![onboarding](https://github.com/user-attachments/assets/50d9c3a8-09b6-4e8f-bec1-21ba6b3e7195)
+
 #### 로그인
-![login](https://github.com/user-attachments/assets/71d1537a-bb4c-4233-aedf-5a6dbbd32374)
-#### 회원가입
-![signup](https://github.com/user-attachments/assets/dbfba1fc-0905-4c6f-b830-ca5e819c83ac)
+![login](https://github.com/user-attachments/assets/9fe2979d-0cce-4991-9e5e-12c09cd67bc0)
+
 #### 비밀번호 찾기
-![pwresetrequest](https://github.com/user-attachments/assets/6c7dfdb2-a3d5-4e40-b082-0466814cd648)
+![pwresetrequest](https://github.com/user-attachments/assets/643e00b2-7544-4a64-b8d3-c86deeb55912)
+
 #### 비밀번호 재설정
-![pwreset](https://github.com/user-attachments/assets/89ffa0e5-29c3-46b2-9ac4-c68f8dd368e5)
-#### 메뉴
-![mypagehome](https://github.com/user-attachments/assets/f6172433-6810-4b27-9649-8cda7b530093)
-#### 비밀번호 확인
-![pwconfirm](https://github.com/user-attachments/assets/ccf2cfc1-aea7-4622-94e9-35e2cfb37cdb)
-#### 회원정보 수정
-![accountedit](https://github.com/user-attachments/assets/ffe3598b-5dce-4c03-8d5c-4d1765e0810e)
-#### 대여내역 조회
-![image](https://github.com/user-attachments/assets/d9950951-d2c9-4851-94f3-2d1586444a73)
-#### 결제
-![payment](https://github.com/user-attachments/assets/e28d94a9-eb9a-4df2-92e4-f8c5727af016)
-#### 리뷰 작성
-![reviewwirte](https://github.com/user-attachments/assets/14030dda-0530-4076-8807-f12479cce926)
-#### 등록 물품 조회
-![registered](https://github.com/user-attachments/assets/fd8a5a4a-d206-47c1-87b0-7639590a9376)
-#### 물품 등록
-![register](https://github.com/user-attachments/assets/56df26c5-e723-4713-9aa2-d7d01ef8971f)
-#### 대여 요청 조회
-![requestItem](https://github.com/user-attachments/assets/0612e566-f861-49d3-bcef-2b693b9bc8ff)
-#### 거래 후기 조회
-![reviewList](https://github.com/user-attachments/assets/4c441b3c-5cef-4cc5-8757-6c6f6b2939e0)
+![pwreset](https://github.com/user-attachments/assets/9082a676-65ea-443e-b03d-ddbbb1089752)
+
+#### 회원가입
+![signup](https://github.com/user-attachments/assets/1db1b9c7-d016-4d53-b2f0-8fb85688f2e8)
+
+#### 홈
+![home](https://github.com/user-attachments/assets/abccd31c-79af-4840-a4c4-5ff8bba864fe)
+
+#### 물품 정보 상세 조회
+![itemDetail](https://github.com/user-attachments/assets/ddb47c09-98d1-4a96-948e-8b3d58ef6c30)
+
 #### 대여 신청 모달
-![rentalrequest](https://github.com/user-attachments/assets/d96f0030-f00a-4e7b-9a20-81205f9c3d68)
+![requestItem](https://github.com/user-attachments/assets/d56a50cc-b1bb-4cf5-bca0-4ec1af7d679a)
+
+
+#### 메뉴
+![mypagehome](https://github.com/user-attachments/assets/c0c7840b-cf08-46b7-8e7c-f9cc331ed5c3)
+
+#### 비밀번호 확인
+![pwconfirm](https://github.com/user-attachments/assets/885778de-99d7-4c59-a98c-e4fad03b8f38)
+
+#### 회원정보 수정
+![accountedit](https://github.com/user-attachments/assets/64e7aa8d-b179-4a02-a5d7-7ca326440288)
+
+#### 대여내역 조회
+![rental](https://github.com/user-attachments/assets/a062eedc-43e9-4e0b-8807-2ba370268c7d)
+
+#### 결제
+![payment](https://github.com/user-attachments/assets/04e1f61e-9279-407e-827d-4ead35caecc9)
+
+#### 리뷰 작성
+![reviewwirte](https://github.com/user-attachments/assets/909a8166-c84b-4779-80f9-6e3f07962b51)
+
+#### 거래 후기 조회
+![reviewList1](https://github.com/user-attachments/assets/269375e1-4ca7-41fc-9821-de8525dd38fe)
+![reviewList2](https://github.com/user-attachments/assets/84e3592f-c5f6-4812-b373-d7680b557e84)
+
+#### 등록 물품 조회
+![registered](https://github.com/user-attachments/assets/22791062-64ad-4969-989f-20f5dbbd6fc0)
+
+#### 물품 등록
+![register](https://github.com/user-attachments/assets/37b1fe9a-3441-43f2-9dac-aab2a87e35fa)
+
+#### 대여 요청 목록
+![rentalreq](https://github.com/user-attachments/assets/57696612-ae86-4d26-8035-586d67173c64)
+
 #### 리뷰 작성 모달
-![review](https://github.com/user-attachments/assets/fcf311f6-152e-43a5-bc79-5fd363b66208)
+![review](https://github.com/user-attachments/assets/f0084f57-0c69-403f-a1e1-3a44af7f4745)
+
 #### 사용자 신고 모달
-![report](https://github.com/user-attachments/assets/0a511ed9-8739-4256-8b81-47198f4b5e0b)
+![report](https://github.com/user-attachments/assets/e5ce4cd2-1623-4e91-a090-3f1d7a4175da)
