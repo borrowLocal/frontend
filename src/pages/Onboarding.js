@@ -12,7 +12,7 @@ const Onboarding = () => {
       <header className="header">
         <div className="logo"> BOROLO </div>
         <nav>
-          <button className="nav-button" onClick={() => navigate('/login', { state: { background: location.state?.background || location } })}>
+          <button className="nav-button" onClick={() => navigate('/login', { state: { background: { pathname: location.pathname } } })}>
             ☰
           </button>
         </nav>

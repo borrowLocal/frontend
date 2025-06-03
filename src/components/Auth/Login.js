@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Auth.css';
 
@@ -9,6 +9,7 @@ const Login = ({ onClose }) => {
   const location = useLocation();
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,6 +29,9 @@ const Login = ({ onClose }) => {
       if (response.status === 200) {
         localStorage.setItem('userId', response.data.user_id);
         setSuccess('로그인이 완료되었습니다.');
+        setTimeout(() => {
+          navigate('/');
+        }, 1000);
       }
     } catch (err) {
       if (err.response) {

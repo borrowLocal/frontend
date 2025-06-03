@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import './MyPage.css';
 
 const mockData = {
@@ -11,10 +12,17 @@ const MyPage = () => {
   const [nickName, setNickName] = useState('');
   const [rating, setRating] = useState(0);
   const location = useLocation();
+  const navigate = useNavigate();
+  
     useEffect(() => {
       setNickName(mockData.nickName);
       setRating(mockData.rating);
     }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('userId');
+    navigate('/login', { state: { background: location.state?.background || location } });
+  };
 
   return (  
     <div className='mypage-container'>
@@ -56,21 +64,9 @@ const MyPage = () => {
           <span>즐겨찾기</span>
         </div>
         <hr></hr>
-        <div className="menu-item">
-          <Link to="/login" state={{ background: location.state?.background || location }} className="menu-link">
-            로그인(디버깅)
-          </Link>
-        </div>
-        <hr></hr>
-        <div className="menu-item">
-          <Link to="/onboarding" className="menu-link">
-            온보딩(디버깅)
-          </Link>
-        </div>
-        <hr></hr>
       </div>
 
-      <button className="logout-button">
+      <button className="logout-button" onClick={handleLogout}>
         로그아웃
       </button>
     </div>
