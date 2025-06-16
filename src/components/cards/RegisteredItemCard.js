@@ -2,7 +2,7 @@ import "./styles/RegisteredItemCard.css";
 
 const statusClass = (status) => {
   switch (status) {
-    case "거래 가능":
+    case "거래가능":
       return "badge-available";
     case "거래 요청":
       return "badge-requested";
@@ -17,11 +17,11 @@ const statusClass = (status) => {
 
 const RegisteredItemCard = ({
   id,
-  itemName,
-  currentAmount,
-  totalAmount,
-  dailyFee,
-  deposit,
+  title, // 제목
+  rentedQuantity, // 대여 중인 수량
+  quantity, // 수량
+  pricePerDay, // 일일 대여료
+  depositAmount, // 보증금
   description,
   imageUrl,
   status,
@@ -36,12 +36,15 @@ const RegisteredItemCard = ({
     <div className="registered-card">
       <div className="register-left-section">
         <div>
-          <img
-            className="registered-item-image" />
+          {imageUrl ? (
+            <img src={imageUrl} className="registered-item-image" />
+          ) : (
+            <img className="registered-item-image" />
+          )}
         </div>
         <div className="registered-item-info">
-          <div className="item-title">{`${itemName} (${currentAmount}/${totalAmount}개)`}</div>
-          <div className="price-info">{`${dailyFee.toLocaleString()}원/일 (보증금 ${deposit.toLocaleString()}원)`}</div>
+          <div className="item-title">{`${title} (${quantity-rentedQuantity}/${quantity}개)`}</div>
+          <div className="price-info">{`${pricePerDay}원/일 (보증금 ${depositAmount}원)`}</div>
           <div className="item-description">
             {description.split('\n').map((line, index) => (
               <span key={index}>
@@ -65,7 +68,7 @@ const RegisteredItemCard = ({
       </div>
 
       <div className="right-section">
-        {status === "거래 가능" && (
+        {status === "거래가능" && (
           <div className="button-group">
             <button className="edit-button" onClick={onEdit}>수정</button>
             <button className="delete-button" onClick={onDelete}>삭제</button>

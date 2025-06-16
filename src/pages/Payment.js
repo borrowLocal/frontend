@@ -80,7 +80,7 @@ const Payment = () => {
                     <span>결제 동의</span>
                 </div>
 
-                <button type="submit">결제하기</button>
+                <button type="submit" className='payment-submit-button'>결제하기</button>
                 </form>
             </div>
         </div>

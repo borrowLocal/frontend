@@ -2,15 +2,15 @@
     padding: 2rem 2rem 0rem 2rem;
 }
 
-.form-buttons {
+.item-register-form-buttons {
     display: flex;
     justify-content: flex-end;
     gap: 15px;
     padding: 10px;
   }
 
-.register-cancel-button,
-.register-submit-button {
+.item-register-cancel-button,
+.item-register-submit-button {
     width: 100px;
     height: 40px;
     margin-bottom: 1rem;
@@ -58,12 +58,23 @@
 }
 
 .item-register-form input,
-.item-register-form textarea {
+.item-register-form textarea,
+.item-register-form select {
   padding: 12px;
   border: 1px solid #333;
   border-radius: 10px;
   font-size: 14px;
   resize: none;
+}
+
+.item-register-form input,
+.item-register-form select {
+  height: 40px;
+  margin: 8px 0;
+}
+
+.item-register-form textarea {
+  margin-top: 10px;
 }
 
 @media (max-width: 768px) {
