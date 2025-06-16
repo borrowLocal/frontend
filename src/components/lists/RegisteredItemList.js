@@ -11,7 +11,6 @@ const RegisteredItemList = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  useEffect(() => {
     const fetchUserItems = async () => {
       try {
         const userId = localStorage.getItem('userId');
@@ -41,8 +40,43 @@ const RegisteredItemList = () => {
       }
     };
 
+  useEffect(() => {
     fetchUserItems();
   }, []);
+
+  const handleDelete = async (itemId) => {
+    try {
+      const userId = localStorage.getItem('userId');
+      if (!userId) {
+        setError('로그인이 필요합니다.');
+        return;
+      }
+
+      const response = await axios.delete(`http://localhost:8080/items/rigister/${itemId}`, {
+        params: {
+          user_id: userId
+        },
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        }
+      });
+
+      if (response.status === 200) {
+        // 삭제 후 목록 새로고침
+        fetchUserItems();
+      }
+    } catch (err) {
+      console.error('아이템 삭제에 실패했습니다:', err);
+      if (err.response?.status === 401) {
+        setError('로그인이 필요합니다.');
+      } else if (err.response?.status === 403) {
+        setError('삭제 권한이 없습니다.');
+      } else {
+        setError('아이템 삭제에 실패했습니다.');
+      }
+    }
+  };
 
   const handleConfirm = (id) => {
     navigate(`/registeredItem/request?id=${id}`);
@@ -82,7 +116,7 @@ const RegisteredItemList = () => {
             status={item.item_status}
             rentedQuantity={item.rented_quantity}
             onEdit={() => alert("수정")}
-            onDelete={() => alert("삭제")}
+            onDelete={() => handleDelete(item.item_id)}
             onConfirm={() => handleConfirm(item.item_id)}
             onComplete={handleReview}
             onReport={handleReport}
