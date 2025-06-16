@@ -28,6 +28,11 @@
   font-weight: bold;
 }
 
+.menu-section li.active {
+  color: #212529;
+  font-weight: 700;
+}
+
 .location-message {
   color: #666;
   font-size: 0.9rem;
