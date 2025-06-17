@@ -5,13 +5,8 @@
   border-radius: 20px 20px 0px 0px;
   width: 80%;
   min-height: calc(100vh - 8rem);
-  margin-top: 8rem;
+  margin-top: 5rem;
   gap: 20px;
   padding: 2rem;
   background-color: white;
-}
-
-.request-item-detail-container h3 {
-    font-weight: 300;
-    padding: 20px;
 }
