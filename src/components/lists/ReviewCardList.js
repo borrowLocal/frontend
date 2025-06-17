@@ -49,6 +49,7 @@ const ReviewCardList = ({ type }) => {
 
   if (loading) return <div>로딩 중...</div>;
   if (error) return <div className="error-message">{error}</div>;
+  if (reviews.length === 0) return <div>리뷰가 없습니다.</div>;
 
   return (
     <div>
