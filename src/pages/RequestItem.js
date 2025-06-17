@@ -11,7 +11,6 @@ const RequestItem = () => {
   const [applicants, setApplicants] = useState([]);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
     const fetchApplicants = async () => {
       try {
         const response = await axios.get(`http://localhost:8080/rentals/applicants/${id}`, {
@@ -28,17 +27,28 @@ const RequestItem = () => {
       }
     };
 
+  useEffect(() => {
     fetchApplicants();
   }, [id]);
 
   const handleAccept = async (rentalId) => {
-    // TODO: 수락 API 구현
-    console.log('수락:', rentalId);
+    try {
+      await axios.put(`http://localhost:8080/rentals/status/approve/${rentalId}`);
+      await fetchApplicants(); // 다시 목록 불러오기
+    } catch (err) {
+      console.error('수락 처리 중 오류:', err);
+      setError('수락 처리 중 오류가 발생했습니다.');
+    }
   };
 
   const handleReject = async (rentalId) => {
-    // TODO: 거절 API 구현
-    console.log('거절:', rentalId);
+    try {
+      await axios.put(`http://localhost:8080/rentals/status/reject/${rentalId}`);
+      await fetchApplicants(); // 다시 목록 불러오기
+    } catch (err) {
+      console.error('거절 처리 중 오류:', err);
+      setError('거절 처리 중 오류가 발생했습니다.');
+    }
   };
 
   if (error) {
@@ -46,8 +56,11 @@ const RequestItem = () => {
   }
 
   return (
-    <div className="request-item-detail-container">     
-      {applicants.map((applicant) => (
+    <div className="request-item-detail-container">
+      {applicants.length === 0 ? (
+        <div className="no-applicants-message">신청자가 없습니다.</div>
+      ) : (
+      applicants.map((applicant) => (
         <div key={applicant.rental_id}>
           <RequestItemCard 
             item={{
@@ -74,7 +87,8 @@ const RequestItem = () => {
           <br/>
           <hr/>
         </div>
-      ))}
+        ))
+      )}
     </div>
   );
 };
