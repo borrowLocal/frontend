@@ -10,6 +10,7 @@ import RegisteredItem from './components/MyMenu/RegisteredItem/RegisteredItem';
 import ItemRegister from './components/MyMenu/RegisteredItem/ItemRegister';
 import RequestItem from './pages/RequestItem';
 import Payment from './pages/Payment';
+import Favorites from './components/lists/favorites'; 
 import './App.css';
 
 function AppRoutes() {
@@ -42,6 +43,7 @@ function AppRoutes() {
               <Route path="rentalRequest" element={<RequestModal />} />
               <Route path="review" element={<RequestModal />} />
               <Route path="reportUser" element={<RequestModal />} />
+              <Route path="favorites" element={<Favorites />} />
             </>
           )}
         </Route>

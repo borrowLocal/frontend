@@ -1,16 +1,66 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
 import RequestModal from "../RequestModal/RequestModal";
 import "./styles/ItemDetailCard.css";
 
 const ItemDetailCard = ({ itemData }) => {
   const navigate = useNavigate();
+  const { id } = useParams();
   const [isFavorite, setIsFavorite] = useState(false);
   const [selectedQuantity, setSelectedQuantity] = useState(1);
   const [showRentalModal, setShowRentalModal] = useState(false);
 
-  const toggleFavorite = () => {
-    setIsFavorite(prev => !prev);
+  useEffect(() => {
+    const checkFavoriteStatus = async () => {
+      const userId = localStorage.getItem('userId');
+      if (!userId) return;
+
+      try {
+        const response = await axios.get(`http://localhost:8080/favorites/${userId}`, {
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          }
+        });
+        
+        // 현재 아이템이 즐겨찾기 목록에 있는지 확인
+        const isItemFavorited = response.data.some(item => item.item_id === parseInt(id));
+        setIsFavorite(isItemFavorited);
+      } catch (error) {
+        console.error('즐겨찾기 상태 확인 중 오류 발생:', error);
+      }
+    };
+
+    checkFavoriteStatus();
+  }, [id]);
+
+  const toggleFavorite = async () => {
+    const userId = localStorage.getItem('userId');
+      if (!userId) {
+        navigate('/login');
+        return;
+      }
+
+    try {
+      if (!isFavorite) {
+        await axios.post('http://localhost:8080/favorites', {
+          user_id: userId,
+          item_id: id
+        });
+      } else {
+        await axios.delete(`http://localhost:8080/favorites/${id}?user_id=${userId}`, {
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          }
+        });
+      }
+      setIsFavorite(prev => !prev);
+    } catch (error) {
+      console.log("user_id, item_id", userId, id);
+      console.error('즐겨찾기 처리 중 오류 발생:', error);
+    }
   };
 
   const handleQuantityChange = (e) => {
