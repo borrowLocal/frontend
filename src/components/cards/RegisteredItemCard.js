@@ -41,6 +41,8 @@ const RegisteredItemCard = ({
   const [modalType, setModalType] = useState('');
   const [reviewData, setReviewData] = useState(null);
   const [reportData, setReportData] = useState(null);
+  const [pendingComplete, setPendingComplete] = useState(false);
+  const [pendingItemId, setPendingItemId] = useState(null);
 
   const handleEdit = () => {
     navigate(`register/${id}`);
@@ -52,8 +54,31 @@ const RegisteredItemCard = ({
       setModalType('review');
       setReviewData(response.data);
       setShowReviewModal(true);
+      setPendingComplete(true);
+      setPendingItemId(id);
     } catch (error) {
       console.error('유저 정보 요청 중 오류가 발생했습니다:', error);
+    }
+  };
+
+  const handleCloseReviewModal = async () => {
+    setShowReviewModal(false);
+    if (pendingComplete && pendingItemId) {
+      try {
+        await axios.put(`http://localhost:8080/items/complete`, null, {
+          params: { item_id: pendingItemId },
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          }
+        });
+      } catch (error) {
+        console.error('대여 상태를 변경하는데 실패했습니다:', error);
+      } finally {
+        setPendingComplete(false);
+        setPendingItemId(null);
+        window.location.reload();
+      }
     }
   };
 
@@ -124,7 +149,7 @@ const RegisteredItemCard = ({
       <RequestModal
         type={modalType}
         reviewData={reviewData}
-        onClose={() => setShowReviewModal(false)}
+        onClose={handleCloseReviewModal}
       />
     )}
     {showReportModal && (
