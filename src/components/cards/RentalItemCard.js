@@ -5,9 +5,6 @@ const RentalItemCard = ({
   status,
   requestDate,
   rentPeriod,
-  returnDate,
-  depositAmount,
-  paymentAmount,
   onPaymentClick,
   onReviewClick
 }) => {
@@ -25,29 +22,24 @@ const RentalItemCard = ({
           <div className="info-text">{requestDate}</div>
         )}
 
-        {status === "결제 요청" && paymentAmount && (
+        {status === "결제요청" && (
+          <div className="button-wrapper">
           <button className="payment-button" onClick={onPaymentClick}>
-            {paymentAmount.toLocaleString()}원<br/>결제 ▶
+            결제 ▶
           </button>
+        </div>
         )}
 
-        {status === "대여 중" && (
+        {status === "대여중" && (
           <div className="info-text">{rentPeriod}</div>
         )}
 
-        {status === "대여 완료" && (
-          <>
-            <div className="info-text">{returnDate}</div>
-            <div className="deposit-text">
-              보증금({depositAmount?.toLocaleString()}원) 입금 예정
-            </div>
-          </>
-        )}
-
-        {status === "거래 완료" && (
+        {status === "대여완료" && (
+          <div className="button-wrapper">
           <button className="review-button" onClick={onReviewClick}>
             거래 후기<br/>작성 ▶
           </button>
+          </div>
         )}
       </div>
     </div>

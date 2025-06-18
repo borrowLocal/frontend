@@ -5,7 +5,7 @@ const statusClass = (status) => {
   switch (status) {
     case "거래가능":
       return "badge-available";
-    case "거래 요청":
+    case "거래요청":
       return "badge-requested";
     case "대여 중":
       return "badge-renting";
@@ -62,7 +62,7 @@ const RegisteredItemCard = ({
           <div className="bottom-row">
           <div className={`status-badge ${statusClass(status)}`}>{status}</div>
 
-          {status === "거래 요청" && (
+          {status === "거래요청" && (
             <button className="confirm-button" onClick={() => onConfirm(id)}>확인</button>
           )}
 
