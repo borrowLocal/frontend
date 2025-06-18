@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import useGeoLocation from '../../../hooks/useGeoLocation';
 import useCityName from '../../../hooks/useCityName';
@@ -7,6 +7,7 @@ import './ItemRegister.css';
 
 const ItemRegister = ({ onCancel }) => {
   const navigate = useNavigate();
+  const { id } = useParams();
   const geoLocation = useGeoLocation();
   const cityInfo = useCityName(geoLocation.coordinates || null);
   
@@ -19,6 +20,41 @@ const ItemRegister = ({ onCancel }) => {
     category_id: '',
   });
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    const fetchItemData = async () => {
+      if (!id) return;
+
+      try {
+        const userId = localStorage.getItem('userId');
+        if (!userId) {
+          setError('로그인이 필요합니다.');
+          return;
+        }
+
+        const response = await axios.get(`http://localhost:8080/items/rigister/${id}`, {
+          params: {
+            user_id: userId
+          }
+        });
+
+        const itemData = response.data;
+        setFormData({
+          title: itemData.title,
+          description: itemData.description,
+          quantity: itemData.quantity.toString(),
+          price_per_day: itemData.price_per_day.toString(),
+          deposit_amount: itemData.deposit_amount.toString(),
+          category_id: itemData.category_id.toString(),
+        });
+      } catch (err) {
+        console.error('물품 정보를 가져오는데 실패했습니다:', err);
+        setError('물품 정보를 가져오는데 실패했습니다.');
+      }
+    };
+
+    fetchItemData();
+  }, [id]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -44,7 +80,7 @@ const ItemRegister = ({ onCancel }) => {
         return;
       }
 
-      const response = await axios.post('http://localhost:8080/items', {
+      const requestData = {
         ...formData,
         image_url: null,
         location: cityInfo.district,
@@ -53,26 +89,39 @@ const ItemRegister = ({ onCancel }) => {
         price_per_day: parseInt(formData.price_per_day),
         deposit_amount: parseInt(formData.deposit_amount),
         category_id: parseInt(formData.category_id)
-      }, {
-        headers: {
-          'Content-Type': 'application/json',
-        }
-      });
+      };
+
+      let response;
+      if (id) {
+        // 수정 요청
+        response = await axios.put(`http://localhost:8080/items/rigister/${id}`, requestData, {
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        });
+      } else {
+        // 새로 등록
+        response = await axios.post('http://localhost:8080/items', requestData, {
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        });
+      }
       
       // 성공 시 처리
       if (response.status === 200) {
-        alert('물품 등록 성공!');
+        alert(id ? '물품 수정 성공!' : '물품 등록 성공!');
         navigate('/registeredItem');
       }
 
     } catch (err) {
-      console.error('아이템 등록에 실패했습니다:', err);
+      console.error('아이템 등록/수정에 실패했습니다:', err);
       if (err.response?.status === 400) {
         setError('입력 정보를 확인해주세요.');
       } else if (err.response?.status === 401) {
         setError('로그인이 필요합니다.');
       } else {
-        setError('아이템 등록에 실패했습니다.');
+        setError('아이템 등록/수정에 실패했습니다.');
       }
     }
   };
@@ -85,7 +134,9 @@ const ItemRegister = ({ onCancel }) => {
             <button className="item-register-cancel-button" onClick={() => navigate('/registeredItem')}>
                 취소
             </button>
-          <button type="submit" className="item-register-submit-button">등록</button>
+          <button type="submit" className="item-register-submit-button">
+            {id ? '수정' : '등록'}
+          </button>
         </div>
 
         <div className="item-register-main">

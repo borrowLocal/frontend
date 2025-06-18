@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import "./styles/RegisteredItemCard.css";
 
 const statusClass = (status) => {
@@ -25,13 +26,18 @@ const RegisteredItemCard = ({
   description,
   imageUrl,
   status,
-  onEdit,
   onDelete,
   onConfirm,
   onComplete,
   onReport,
   onChangeToAvailable
 }) => {
+  const navigate = useNavigate();
+
+  const handleEdit = () => {
+    navigate(`register/${id}`);
+  };
+
   return (
     <div className="registered-card">
       <div className="register-left-section">
@@ -70,7 +76,7 @@ const RegisteredItemCard = ({
       <div className="right-section">
         {status === "거래가능" && (
           <div className="button-group">
-            <button className="edit-button" onClick={onEdit}>수정</button>
+            <button className="edit-button" onClick={handleEdit}>수정</button>
             <button className="delete-button" onClick={onDelete}>삭제</button>
           </div>
         )}

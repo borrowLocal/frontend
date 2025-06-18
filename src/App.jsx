@@ -39,6 +39,7 @@ function AppRoutes() {
               <Route path="item/:id" element={<ItemDetail />} />
               <Route path="registeredItem" element={<RegisteredItem />} />
               <Route path="registeredItem/register" element={<ItemRegister />} />
+              <Route path="registeredItem/register/:id" element={<ItemRegister />} />
               <Route path="registeredItem/request" element={<RequestItem />} />
               <Route path="rentalRequest" element={<RequestModal />} />
               <Route path="review" element={<RequestModal />} />
