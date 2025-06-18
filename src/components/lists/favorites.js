@@ -7,6 +7,7 @@ const FavoritesList = () => {
   const navigate = useNavigate();
   const [items, setItems] = useState([]);
   const [error, setError] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     const fetchFavorites = async () => {
@@ -24,7 +25,8 @@ const FavoritesList = () => {
           }
         });
 
-        setItems(response.data);
+        // 응답이 배열인지 확인
+        setItems(Array.isArray(response.data) ? response.data : []);
         setError(null);
       } catch (err) {
         console.error('즐겨찾기 목록을 불러오는데 실패했습니다:', err);
@@ -40,11 +42,27 @@ const FavoritesList = () => {
     navigate(`/item/${id}`);
   };
 
+  // 검색어에 따라 필터링된 아이템 목록
+  const filteredItems = items.filter(item => {
+    if (!searchQuery.trim()) {
+      return true;
+    }
+    return item.title && item.title.toLowerCase().includes(searchQuery.toLowerCase());
+  });
+
   return (
     <main className="main-content">
+      <div className="search-bar">
+        <input
+          type="text"
+          placeholder="검색"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+      </div>
       {error && <div className="error-message">{error}</div>}
       <div className="items-grid">
-        {items.map((item) => (
+        {filteredItems.map((item) => (
           <div
             key={item.item_id}
             className="item-card"

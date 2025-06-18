@@ -1,6 +1,6 @@
 .main-content {
   flex: 1;
-  margin-top: 5rem;
+  margin-top: 4.5rem;
   padding-left: 2rem;
 }
 
@@ -42,3 +42,19 @@
   font-size: 0.8rem;
   color: #666;
 } 
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  max-width: 90%;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  outline: none;
+}
