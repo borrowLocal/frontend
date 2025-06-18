@@ -49,7 +49,7 @@ function AppRoutes() {
           )}
         </Route>
         <Route path="/onboarding" element={<Onboarding />} />
-        <Route path="/payment" element={<Payment />} />
+        <Route path="/payment/:id" element={<Payment />} />
       </Routes>
       {isModal && <SideModal />}
     </>

@@ -54,7 +54,7 @@ const RentalItemList = () => {
           depositAmount={rental.deposit_amount}
           onPaymentClick={
             rental.rental_status === "결제요청"
-              ? () => navigate('/payment')
+              ? () => navigate(`/payment/${rental.rental_id}`)
               : undefined
           }
           onReviewClick={

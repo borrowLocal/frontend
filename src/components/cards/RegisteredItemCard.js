@@ -7,7 +7,7 @@ const statusClass = (status) => {
       return "badge-available";
     case "거래요청":
       return "badge-requested";
-    case "대여 중":
+    case "대여중":
       return "badge-renting";
     case "거래 완료":
       return "badge-complete";
@@ -81,7 +81,7 @@ const RegisteredItemCard = ({
           </div>
         )}
 
-        {status === "대여 중" && (
+        {status === "대여중" && (
           <div className="button-group">
             <button className="complete-button" onClick={onComplete}>완료</button>
             <button className="report-button" onClick={onReport}>신고</button>
