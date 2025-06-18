@@ -1,20 +1,61 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 import './RequestModal.css';
 
-const RentalRequest = ({ onClose, quantity }) => {
-  const [itemName, setItemName] = useState('텐트');
+const RentalRequest = ({ onClose, quantity, itemName }) => {
   const [rentalPeriod, setRentalPeriod] = useState({start: '', end: ''});
   const [rentalDateTime, setRentalDateTime] = useState({date: '', time: ''});
   const [returnDateTime, setReturnDateTime] = useState({date: '', time: ''});
   const [location, setLocation] = useState('');
+  const [error, setError] = useState('');
+  const { id } = useParams();
 
   const handleRentalPeriodChange = (type, value) => {
     setRentalPeriod(prev => ({...prev, [type]: value}));
-    
-    if (type === 'start') {
-      setRentalDateTime(prev => ({...prev, date: value}));
-    } else if (type === 'end') {
-      setReturnDateTime(prev => ({...prev, date: value}));
+  };
+
+  const handleSubmit = async () => {
+    setError('');
+
+    try {
+      const userId = localStorage.getItem('userId');
+      if (!userId) {
+        alert('로그인이 필요합니다.');
+        return;
+      }
+
+      if (!rentalPeriod.start || !rentalPeriod.end || !location || !rentalDateTime.time) {
+        alert('모든 필드를 입력해주세요.');
+        return;
+      }
+
+      const requestData = {
+        item_id: parseInt(id),
+        start_date: rentalPeriod.start,
+        end_date: rentalPeriod.end,
+        meeting_location: location,
+        meeting_time: `${rentalDateTime.date}T${rentalDateTime.time}:00.000Z`,
+        user_id: parseInt(userId),
+        rental_quantity: parseInt(quantity),
+        expected_return_at: returnDateTime.date
+      };
+
+      const response = await axios.post('http://localhost:8080/rentals', requestData, {
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+
+      if (response.status === 200) {
+        alert('대여 신청이 완료되었습니다!');
+        onClose();
+      }
+
+    } catch (err) {
+      console.error('대여 신청에 실패했습니다:', err);
+      alert(err.response.data);
+      setError('대여 신청에 실패했습니다.');
     }
   };
 
@@ -50,7 +91,6 @@ const RentalRequest = ({ onClose, quantity }) => {
           type="date" 
           value={rentalDateTime.date} 
           onChange={(e) => setRentalDateTime(prev => ({...prev, date: e.target.value}))} 
-          readOnly
         />
         <input 
           type="time" 
@@ -65,7 +105,6 @@ const RentalRequest = ({ onClose, quantity }) => {
           type="date" 
           value={returnDateTime.date} 
           onChange={(e) => setReturnDateTime(prev => ({...prev, date: e.target.value}))} 
-          readOnly
         />
         <input 
           type="time" 
@@ -83,7 +122,7 @@ const RentalRequest = ({ onClose, quantity }) => {
         className="location-input"
       />
 
-      <button className="submit-button">대여 신청</button>
+      <button className="submit-button" onClick={handleSubmit}>대여 신청</button>
     </div>
   );
 };
