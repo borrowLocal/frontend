@@ -60,6 +60,10 @@
   .badge-renting {
     background-color: #aae8fd;
   }
+
+  .badge-reported {
+    background-color: #ff9999;
+  }
   
   .bottom-row {
     display: flex;

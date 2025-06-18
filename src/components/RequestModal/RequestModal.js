@@ -4,7 +4,7 @@ import ReviewWrite from '../MyMenu/ReviewWrite';
 import ReportUser from './ReportUser';
 import './RequestModal.css';
 
-const RequestModal = ({ onClose, type, quantity }) => {
+const RequestModal = ({ onClose, type, quantity, reviewData, reportData }) => {
   const [isClosing, setIsClosing] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -27,9 +27,9 @@ const RequestModal = ({ onClose, type, quantity }) => {
       case 'rental':
         return <RentalRequest onClose={handleClose} quantity={quantity} />;
       case 'review':
-        return <ReviewWrite onClose={handleClose} />;
+        return <ReviewWrite onClose={handleClose} reviewData={reviewData} />;
       case 'report':
-        return <ReportUser onClose={handleClose} />;
+        return <ReportUser onClose={handleClose} reportData={reportData} />;
       default:
         return null;
     }

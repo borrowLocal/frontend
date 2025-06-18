@@ -1,3 +1,4 @@
+import axios from "axios";
 import "./styles/RentalItemCard.css";
 
 const RentalItemCard = ({
@@ -5,10 +6,20 @@ const RentalItemCard = ({
   status,
   requestDate,
   rentPeriod,
+  rentalId,
   onPaymentClick,
   onReviewClick
 }) => {
   const isRejected = status === "거절";
+
+  const handleReviewClick = async () => {
+    try {
+      const response = await axios.get(`http://localhost:8080/reviews/rental/${rentalId}`);
+      onReviewClick(response.data);
+    } catch (error) {
+      console.error('리뷰 정보 요청 중 오류가 발생했습니다:', error);
+    }
+  };
 
   return (
     <div className={`rental-card ${isRejected ? "rejected" : ""}`}>
@@ -36,7 +47,7 @@ const RentalItemCard = ({
 
         {status === "대여완료" && (
           <div className="button-wrapper">
-          <button className="review-button" onClick={onReviewClick}>
+          <button className="review-button" onClick={handleReviewClick}>
             거래 후기<br/>작성 ▶
           </button>
           </div>

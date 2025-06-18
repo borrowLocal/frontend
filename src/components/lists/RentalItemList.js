@@ -33,13 +33,8 @@ const RentalItemList = () => {
     fetchRentalData();
   }, []);
 
-  if (loading) {
-    return <div>로딩 중...</div>;
-  }
-
-  if (error) {
-    return <div>{error}</div>;
-  }
+  if (loading) { return <div>로딩 중...</div>; }
+  if (error) { return <div>{error}</div>; }
 
   return (
     <div>
@@ -51,6 +46,7 @@ const RentalItemList = () => {
           requestDate={rental.start_date}
           rentPeriod={`${rental.start_date} ~ ${rental.end_date}`}
           returnDate={rental.end_date}
+          rentalId={rental.rental_id}
           depositAmount={rental.deposit_amount}
           onPaymentClick={
             rental.rental_status === "결제요청"
@@ -59,7 +55,7 @@ const RentalItemList = () => {
           }
           onReviewClick={
             rental.rental_status === "대여완료"
-              ? () => navigate('/reviewWrite', { state: { background: location.state?.background || location } })
+              ? (data) => navigate(`/reviewWrite`, { state: { reviewData: data, background: location.state?.background || location } })
               : undefined
           }
         />

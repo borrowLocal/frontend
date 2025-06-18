@@ -57,7 +57,7 @@ const SideModal = () => {
         {location.pathname === '/editProfile' && <EditProfile onClose={handleClose} />}
         {location.pathname === '/rentalHistory' && <RentalHistory onClose={handleClose} />}
         {location.pathname === '/reviewList' && <ReviewList onClose={handleClose } />}
-        {location.pathname === '/reviewWrite' && <ReviewWrite onClose={handleClose} />}
+        {location.pathname === '/reviewWrite' && <ReviewWrite onClose={handleClose} reviewData={location.state?.reviewData} />}
       </div>
     </div>
   );

@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import '../RequestModal/RequestModal.css';
 
-const ReviewWrite = ({ onClose }) => {
-  const [userName] = useState("성북구 헌터");
+const ReviewWrite = ({ onClose, reviewData }) => {
+  const [userName] = useState(reviewData?.nickname);
   const [reportMessage, setReportMessage] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
   const [ratings, setRatings] = useState({
     friendly: 0,
@@ -24,6 +27,41 @@ const ReviewWrite = ({ onClose }) => {
         {star <= currentRating ? '★' : '☆'}
       </span>
     ));
+  };
+
+  const handleSubmitReview = async () => {
+    try {
+      const totalRating = ratings.friendly + ratings.punctual + ratings.responsive;
+      
+      const requestBody = {
+        rental_id: reviewData?.rentalId || 0,
+        user_target_id: reviewData?.targetUserId || 0,
+        content: reportMessage,
+        rating: totalRating
+      };
+
+      const userId = localStorage.getItem('userId');
+      if (!userId) {
+        setError('로그인이 필요합니다.');
+        setLoading(false);
+        return;
+      }
+
+      await axios.post('http://localhost:8080/reviews', requestBody, {
+        params: {
+          user_id: userId
+        },
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+
+      console.log('후기가 성공적으로 등록되었습니다.');
+      onClose();
+    } catch (error) {
+      const messages = error.response.data.errors.map(err => err.message).join('\n');
+      alert(messages);
+    }
   };
 
   return (
@@ -63,7 +101,7 @@ const ReviewWrite = ({ onClose }) => {
         onChange={(e) => setReportMessage(e.target.value)}
        />
 
-      <button className="submit-button">후기 등록</button>
+      <button className="submit-button" onClick={handleSubmitReview}>후기 등록</button>
     </div>
   );
 };

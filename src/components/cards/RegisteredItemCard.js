@@ -1,4 +1,7 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import RequestModal from '../RequestModal/RequestModal';
 import "./styles/RegisteredItemCard.css";
 
 const statusClass = (status) => {
@@ -9,8 +12,10 @@ const statusClass = (status) => {
       return "badge-requested";
     case "대여중":
       return "badge-renting";
-    case "거래 완료":
+    case "완료":
       return "badge-complete";
+    case "신고":
+      return "badge-reported";
     default:
       return "";
   }
@@ -28,17 +33,43 @@ const RegisteredItemCard = ({
   status,
   onDelete,
   onConfirm,
-  onComplete,
-  onReport,
   onChangeToAvailable
 }) => {
   const navigate = useNavigate();
+  const [showReviewModal, setShowReviewModal] = useState(false);
+  const [showReportModal, setShowReportModal] = useState(false);
+  const [modalType, setModalType] = useState('');
+  const [reviewData, setReviewData] = useState(null);
+  const [reportData, setReportData] = useState(null);
 
   const handleEdit = () => {
     navigate(`register/${id}`);
   };
 
+  const handleReview = async () => {
+    try {
+      const response = await axios.get(`http://localhost:8080/reviews/item/${id}`);
+      setModalType('review');
+      setReviewData(response.data);
+      setShowReviewModal(true);
+    } catch (error) {
+      console.error('유저 정보 요청 중 오류가 발생했습니다:', error);
+    }
+  };
+
+  const handleReport = async () => {
+    try {
+      const response = await axios.get(`http://localhost:8080/reports/item/${id}`);
+      setModalType('report');
+      setReportData(response.data);
+      setShowReportModal(true);
+    } catch (error) {
+      console.error('유저 정보 요청 중 오류가 발생했습니다:', error);
+    }
+  };
+
   return (
+    <>
     <div className="registered-card">
       <div className="register-left-section">
         <div>
@@ -83,12 +114,27 @@ const RegisteredItemCard = ({
 
         {status === "대여중" && (
           <div className="button-group">
-            <button className="complete-button" onClick={onComplete}>완료</button>
-            <button className="report-button" onClick={onReport}>신고</button>
+            <button className="complete-button" onClick={handleReview}>완료</button>
+            <button className="report-button" onClick={handleReport}>신고</button>
           </div>
         )}
       </div>
     </div>
+    {showReviewModal && (
+      <RequestModal
+        type={modalType}
+        reviewData={reviewData}
+        onClose={() => setShowReviewModal(false)}
+      />
+    )}
+    {showReportModal && (
+      <RequestModal
+        type={modalType}
+        reportData={reportData}
+        onClose={() => setShowReportModal(false)}
+      />
+    )}
+    </>
   );
 };
 
