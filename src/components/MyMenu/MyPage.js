@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import './MyPage.css';
 
 const mockData = {
@@ -11,27 +10,13 @@ const mockData = {
 const MyPage = () => {
   const [nickName, setNickName] = useState('');
   const [rating, setRating] = useState(0);
-  const [favorites, setFavorites] = useState([]);
   const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
     setNickName(mockData.nickName);
     setRating(mockData.rating);
-    fetchFavorites();
   }, []);
-
-  const fetchFavorites = async () => {
-    try {
-      const userId = localStorage.getItem('userId');
-      if (!userId) return;
-      
-      const response = await axios.get(`/favorites/${userId}`);
-      setFavorites(response.data);
-    } catch (error) {
-      console.error('즐겨찾기 목록 조회 중 오류 발생:', error);
-    }
-  };
 
   const handleLogout = () => {
     localStorage.removeItem('userId');
