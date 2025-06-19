@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import profileImg from '../../assets/profile.jpg';
 import './MyPage.css';
 
 const mockData = {
@@ -26,7 +27,7 @@ const MyPage = () => {
   return (  
     <div className='mypage-container'>
       <div className="profile-section">
-        <div className="profile-image"></div>
+        <img className="profile-image" src={profileImg} />
         <div className="profile-info">
           <p className='profile-nickName'><strong>{nickName}</strong> 님</p>
           <p className='profile-rating'>신뢰도 ★ ({rating}/9)</p>
