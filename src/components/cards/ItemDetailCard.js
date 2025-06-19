@@ -76,7 +76,7 @@ const ItemDetailCard = ({ itemData }) => {
     <>
       <div className="item-detail-card">
         <div className="item-detail-card-image">
-          <img />
+        <img src={`http://localhost:8080${itemData.image_url}`} alt="물품 이미지" />
         </div>
 
         <div className="item-detail-card-content">

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import useGeoLocation from '../../../hooks/useGeoLocation';
 import useCityName from '../../../hooks/useCityName';
@@ -10,7 +10,10 @@ const ItemRegister = ({ onCancel }) => {
   const { id } = useParams();
   const geoLocation = useGeoLocation();
   const cityInfo = useCityName(geoLocation.coordinates || null);
-  
+  const location = useLocation();
+  const initialImageUrl = location.state?.imageUrl ? `http://localhost:8080${location.state.imageUrl}` : null;
+  const [previewUrl, setPreviewUrl] = useState(initialImageUrl);
+
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -20,6 +23,7 @@ const ItemRegister = ({ onCancel }) => {
     category_id: '',
   });
   const [error, setError] = useState('');
+  const [imageFile, setImageFile] = useState(null);
 
   useEffect(() => {
     const fetchItemData = async () => {
@@ -47,6 +51,9 @@ const ItemRegister = ({ onCancel }) => {
           deposit_amount: itemData.deposit_amount.toString(),
           category_id: itemData.category_id.toString(),
         });
+        if (!previewUrl && itemData.image_url) {
+          setPreviewUrl(`http://localhost:8080${itemData.image_url}`);
+        }
       } catch (err) {
         console.error('물품 정보를 가져오는데 실패했습니다:', err);
         setError('물품 정보를 가져오는데 실패했습니다.');
@@ -80,9 +87,8 @@ const ItemRegister = ({ onCancel }) => {
         return;
       }
 
-      const requestData = {
+      const dto = {
         ...formData,
-        image_url: null,
         location: cityInfo.district,
         user_id: parseInt(userId),
         quantity: parseInt(formData.quantity),
@@ -91,21 +97,29 @@ const ItemRegister = ({ onCancel }) => {
         category_id: parseInt(formData.category_id)
       };
 
+      const form = new FormData();
+      form.append("dto", new Blob([JSON.stringify(dto)], { type: "application/json" }));
+      if (imageFile) {
+        form.append("file", imageFile);
+      }
+
       let response;
       if (id) {
         // 수정 요청
-        response = await axios.put(`http://localhost:8080/items/rigister/${id}`, requestData, {
-          headers: {
-            'Content-Type': 'application/json',
+        response = await axios.put(`http://localhost:8080/items/rigister/${id}`,
+          form,
+          {
+            // Content-Type을 명시하지 않음 (브라우저가 자동 설정)
           }
-        });
+        );
       } else {
         // 새로 등록
-        response = await axios.post('http://localhost:8080/items', requestData, {
-          headers: {
-            'Content-Type': 'application/json',
+        response = await axios.post('http://localhost:8080/items',
+          form,
+          {
+            // Content-Type을 명시하지 않음 (브라우저가 자동 설정)
           }
-        });
+        );
       }
       
       // 성공 시 처리
@@ -141,7 +155,21 @@ const ItemRegister = ({ onCancel }) => {
 
         <div className="item-register-main">
             <div className="item-register-image">
-                <img />
+                <img src={previewUrl || ''} />
+                <input
+                  className="item-register-image-input"
+                  type="file"
+                  accept="image/*"
+                  onChange={e => {
+                    const file = e.target.files[0];
+                    setImageFile(file);
+                    if (file) {
+                      setPreviewUrl(URL.createObjectURL(file));
+                    } else {
+                      setPreviewUrl(null);
+                    }
+                  }}
+                />
             </div>
 
             <div className="item-register-form">

@@ -38,6 +38,12 @@
   background-color: white;
 }
 
+.item-register-image {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .item-register-image img {
   width: 200px;
   aspect-ratio: 1 / 1;
@@ -75,6 +81,10 @@
 
 .item-register-form textarea {
   margin-top: 10px;
+}
+
+.item-register-image-input {
+  width: 70%;
 }
 
 @media (max-width: 768px) {

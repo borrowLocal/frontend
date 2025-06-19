@@ -98,11 +98,11 @@ const RegisteredItemCard = ({
     <div className="registered-card">
       <div className="register-left-section">
         <div>
-          {imageUrl ? (
-            <img src={imageUrl} className="registered-item-image" />
-          ) : (
-            <img className="registered-item-image" />
-          )}
+          <img
+            className="registered-item-image"
+            src={`http://localhost:8080${imageUrl}`}
+            alt="물품 이미지"
+          />
         </div>
         <div className="registered-item-info">
           <div className="item-title">{`${title} (${quantity-rentedQuantity}/${quantity}개)`}</div>

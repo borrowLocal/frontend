@@ -69,7 +69,13 @@ const FavoritesList = () => {
             onClick={() => handleItemClick(item.item_id)}
             style={{ cursor: 'pointer' }}
           >
-            <div className="item-image"></div>
+            <div>
+              <img
+                className="item-image"
+                src={`http://localhost:8080${item.image_url}`}
+                alt="물품 이미지"
+              />
+            </div>
             <h4 className="item-title">{item.title}</h4>
             <p className="item-update">
               {new Date(item.update_time).toLocaleDateString()}
