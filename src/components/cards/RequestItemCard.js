@@ -4,7 +4,7 @@ const RequestItemCard = ({ item, onAccept, onReject }) => {
   return (
     <div className="request-item-card">
       <div className="item-header">
-        <img className="request-item-image" />
+        <img className="request-item-image" src={`http://localhost:8080${item.itemImage}`} />
         <div className="request-item-details">
           <p className="req-item-name">{item.itemName} ({item.quantity}개)</p>
           <p className="req-item-cost">

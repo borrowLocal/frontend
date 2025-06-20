@@ -81,7 +81,7 @@ const Payment = () => {
 
             <div className="payment-item">
                 <div className="item-title">
-                    <img src="" />
+                    <img src={`http://localhost:8080${paymentData.itemImageUrl}`} />
                     <div className="item-info">
                         <p className="owner">{paymentData.renterNickName}님의</p>
                         <h3>{paymentData.itemTitle}</h3>

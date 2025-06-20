@@ -73,7 +73,8 @@ const RequestItem = () => {
               returnTime: applicant.expected_return_at,
               meetingPlace: applicant.meeting_location,
               quantity: applicant.rental_quantity,
-              status: applicant.rental_status
+              status: applicant.rental_status,
+              itemImage: applicant.image_url
             }}
             onAccept={() => handleAccept(applicant.rental_id)}
             onReject={() => handleReject(applicant.rental_id)}

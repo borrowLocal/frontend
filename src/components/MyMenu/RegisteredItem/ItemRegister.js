@@ -36,7 +36,7 @@ const ItemRegister = ({ onCancel }) => {
           return;
         }
 
-        const response = await axios.get(`http://localhost:8080/items/rigister/${id}`, {
+        const response = await axios.get(`http://localhost:8080/items/register/${id}`, {
           params: {
             user_id: userId
           }
@@ -51,8 +51,10 @@ const ItemRegister = ({ onCancel }) => {
           deposit_amount: itemData.deposit_amount.toString(),
           category_id: itemData.category_id.toString(),
         });
-        if (!previewUrl && itemData.image_url) {
+        if (itemData.image_url) {
           setPreviewUrl(`http://localhost:8080${itemData.image_url}`);
+        } else {
+          setPreviewUrl(null);
         }
       } catch (err) {
         console.error('물품 정보를 가져오는데 실패했습니다:', err);
@@ -106,7 +108,7 @@ const ItemRegister = ({ onCancel }) => {
       let response;
       if (id) {
         // 수정 요청
-        response = await axios.put(`http://localhost:8080/items/rigister/${id}`,
+        response = await axios.put(`http://localhost:8080/items/register/${id}`,
           form,
           {
             // Content-Type을 명시하지 않음 (브라우저가 자동 설정)

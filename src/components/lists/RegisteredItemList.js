@@ -49,7 +49,7 @@ const RegisteredItemList = () => {
         return;
       }
 
-      const response = await axios.delete(`http://localhost:8080/items/rigister/${itemId}`, {
+      const response = await axios.delete(`http://localhost:8080/items/register/${itemId}`, {
         params: {
           user_id: userId
         },
