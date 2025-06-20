@@ -57,7 +57,7 @@ const ReviewWrite = ({ onClose, reviewData }) => {
       });
 
       alert('후기가 성공적으로 등록되었습니다.');
-      onClose();
+      //onClose();
     } catch (error) {
       const messages = error.response.data.errors.map(err => err.message).join('\n');
       alert(messages);

@@ -47,7 +47,7 @@ const Payment = () => {
         const response = await axios.put(`http://localhost:8080/rentals/status/start/${id}`);
       if (response.status === 200) {
         alert('결제가 완료되었습니다!');
-        navigate('/rentalHistory');
+        navigate('/');
       }
     } catch (err) {
       console.error('결제를 요청하는데 실패했습니다:', err);

@@ -33,7 +33,7 @@ const MyPage = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('userId');
-    navigate('/login', { state: { background: location.state?.background || location } });
+    navigate('/onboarding');
   };
 
   return (  
