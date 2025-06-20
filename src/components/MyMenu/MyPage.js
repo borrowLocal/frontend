@@ -1,23 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import profileImg from '../../assets/profile.jpg';
+import axios from 'axios';
 import './MyPage.css';
-
-const mockData = {
-  nickName: '여의도 주술사',
-  rating: 8,
-};
 
 const MyPage = () => {
   const [nickName, setNickName] = useState('');
   const [rating, setRating] = useState(0);
+  const [error, setError] = useState('');
   const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
-    setNickName(mockData.nickName);
-    setRating(mockData.rating);
-  }, []);
+    const fetchUserInfo = async () => {
+      const userId = localStorage.getItem('userId');
+      if (!userId) {
+        setError('로그인이 필요합니다.');
+        navigate('/login', { state: { background: location.state?.background || location } });
+        return;
+      }
+      try {
+        const response = await axios.get(`http://localhost:8080/users/${userId}`);
+        setNickName(response.data.nick_name);
+        setRating(response.data.rating);
+        setError('');
+      } catch (err) {
+        setError('유저 정보를 불러오지 못했습니다.');
+      }
+    };
+    fetchUserInfo();
+  }, [navigate, location]);
 
   const handleLogout = () => {
     localStorage.removeItem('userId');
@@ -33,7 +45,7 @@ const MyPage = () => {
           <p className='profile-rating'>신뢰도 ★ ({rating}/9)</p>
         </div>
       </div>
-
+      {error && <div className="error-message">{error}</div>}
       <div className="menu-list">
         <hr></hr>
         <div className="menu-item">
