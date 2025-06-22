@@ -134,6 +134,7 @@ const ItemRegister = ({ onCancel }) => {
       console.error('아이템 등록/수정에 실패했습니다:', err);
       if (err.response?.status === 400) {
         setError('입력 정보를 확인해주세요.');
+        alert(err.response.data.errors[0].message);
       } else if (err.response?.status === 401) {
         setError('로그인이 필요합니다.');
       } else {
