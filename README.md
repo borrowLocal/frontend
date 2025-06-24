@@ -35,28 +35,85 @@ http://localhost:3000
 ## 프로젝트 구조 
 ```
 src/
-├── pages/                       
-│   ├── Home.js                  # 홈(메인) 페이지 컴포넌트
-│   └── Onboarding.js            # 온보딩(초기 안내) 페이지 컴포넌트
-├── styles/                      
-│   ├── ItemList.css             # 아이템 리스트 관련 스타일
-│   ├── SideModal.css            # 사이드 모달 관련 스타일
-│   ├── Home.css                 # 홈 페이지 관련 스타일
-│   ├── Sidebar.css              # 사이드바 관련 스타일
-│   └── Onboarding.css           # 온보딩 페이지 관련 스타일
-├── components/
-│   ├── CardComponents/          # 카드 형태 컴포넌트 폴더             
-│   ├── ListComponents/          # 리스트(목록) 관련 컴포넌트 폴더
-│   ├── MyMenu/                  # 마이페이지, 내 메뉴 관련 컴포넌트 폴더
-│   ├── RequestModal/            # 대여 신청, 유저 평가, 유저 신고 모달 컴포넌트 폴더
-│   ├── Auth/                    # 로그인, 회원가입, 비밀번호 찾기/재설정 등 인증 관련 컴포넌트 폴더
-│   ├── Header.js                # 상단 헤더(네비게이션 바) 컴포넌트
-│   ├── SideModal.js             # 사이드 모달 컴포넌트
-│   └── Sidebar.js               # 사이드바 컴포넌트
-├── data/                        # mock data 폴더
-├── App.jsx                      # 전체 앱의 루트 컴포넌트
-├── App.css                      # 전체 앱의 전역 스타일 파일
-└── index.js                     # React 앱의 진입점(엔트리 포인트)
+├── assets/                    # 이미지 파일들
+│   ├── herolmg.png
+│   └── profile.jpg
+│
+├── components/                # 공통 컴포넌트 모음
+│   ├── Auth/                  # 회원가입/로그인/비밀번호 관련 컴포넌트
+│   │   ├── ConfirmPW.js          # 비밀번호 확인용(회원 정보 수정 전에 비밀번호 재입력 요구)
+│   │   ├── EditProfile.js        # 프로필 수정 페이지용 컴포넌트
+│   │   ├── FindPassword.js       # 이메일 입력 후 인증코드 받는 페이지
+│   │   ├── Login.js              # 로그인 폼 UI 및 API 연동
+│   │   ├── Register.js           # 회원가입 폼 UI 및 입력값 처리
+│   │   ├── ResetPW.js            # 인증코드 확인 후 비밀번호 재설정 폼
+│   │   └── Auth.css              # 위 인증 페이지들의 공통 스타일
+│   │
+│   ├── cards/                 # 카드 형태의 UI 컴포넌트들
+│   │   ├── styles/            # 각 카드별 CSS 파일이 담긴 폴더
+│   │   ├── ItemDetailCard.js        # 물품 상세정보 카드
+│   │   ├── ProfileCard.js           # 유저 프로필 카드
+│   │   ├── RegisteredItemCard.js    # 내가 등록한 물품 카드
+│   │   ├── RentalItemCard.js        # 내가 대여 중인 물품 카드
+│   │   ├── RequestItemCard.js       # 대여 요청 받은 물품 카드
+│   │   └── ReviewCard.js            # 리뷰 정보 카드
+│   │
+│   ├── lists/                 # 카드들의 리스트 컴포넌트
+│   │   ├── favorites.js             # 찜한 물품 목록
+│   │   ├── ItemList.js              # 전체 물품 리스트
+│   │   ├── RegisteredItemList.js    # 등록한 물품들 목록
+│   │   ├── RentalItemList.js        # 대여 중인 물품들 목록
+│   │   └── ReviewCardList.js        # 리뷰 카드들 목록
+│   │
+│   ├── MyMenu/                # 마이페이지 관련 기능 UI 모음
+│   │   ├── RegisteredItem/
+│   │   │   ├── ItemRegister.js      # 물품 등록 폼
+│   │   │   ├── RegisteredItem.js    # 내가 등록한 물품 목록 출력
+│   │   │   ├── ItemRegister.css
+│   │   │   └── RegisteredItem.css
+│   │   ├── RentalHistory/
+│   │   │   ├── RentalHistory.js     # 대여 기록 확인 컴포넌트
+│   │   │   └── RentalHistory.css
+│   │   ├── ReviewList/
+│   │   │   ├── ReviewList.js        # 내가 작성한 리뷰 리스트
+│   │   │   └── ReviewList.css
+│   │   ├── MyPage.js                # 마이페이지 메인 화면
+│   │   └── MyPage.css
+│   │
+│   ├── RequestModal/          # 모달 관련 UI
+│   │   ├── RentalRequest.js      # 대여 요청 폼
+│   │   ├── ReportUser.js         # 사용자 신고 폼
+│   │   ├── RequestModal.js       # 모달의 기본 레이아웃 및 상태 관리
+│   │   └── RequestModal.css      # 모달 관련 스타일
+│   │
+│   ├── Header.js              # 상단 바
+│   ├── Sidebar.js             # 좌측 메뉴(위치 설정, 카테고리)
+│   └── SideModal.js           # 우측에서 나오는 모달
+│
+├── hooks/                     # 커스텀 훅
+│   ├── useCityName.js             # 현재 위치를 기반으로 도시명 추출
+│   └── useGeoLocation.js          # 브라우저 위치 정보 수집 기능
+│
+├── pages/                     # 각 라우트 화면
+│   ├── Home.js                    # 메인 홈 화면
+│   ├── ItemDetail.js              # 물품 상세 페이지
+│   ├── Onboarding.js              # 첫 접속 시 유저 온보딩 화면
+│   ├── Payment.js                 # 결제 페이지
+│   └── RequestItem.js             # 물품 대여 요청 처리 페이지
+│
+├── styles/                    # 화면 전체 또는 특정 페이지 단위의 스타일 파일들
+│   ├── App.css                    # 전체 앱 공통 스타일
+│   ├── Home.css  
+│   ├── ItemDetail.css  
+│   ├── ItemList.css  
+│   ├── Onboarding.css       
+│   ├── Payment.css        
+│   ├── RequestItem.css
+│   ├── Sidebar.css
+│   └── SideModal.css 
+│
+├── App.jsx                    # 루트 컴포넌트
+└── index.js                   # 진입점
 ```
 
 ## 구현 화면
