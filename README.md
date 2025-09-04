@@ -1,38 +1,28 @@
 # Borolo Frontend
-- Borolo 프로젝트의 프론트엔드 실행 방법, 폴더 구조, 구현 화면을 정리한 문서입니다.
-  
-## 프로젝트 실행 방법
-- Node.js와 npm이 설치되어 있어야 실행 가능합니다.
 
-### 1. 저장소 클론
+## 📌 개요
 
-```bash
-git clone https://github.com/borrowLocal/frontend.git
-cd frontend
-```
+- 이 저장소는 Borolo의 프론트엔드 레포지토리입니다. React 기반으로 사용자 인터페이스를 구현하고, 백엔드 API와 연동하여 서비스를 제공합니다.
 
-### 2. 의존성 설치
-프로젝트 루트 디렉토리에서 다음 명령어로 필요한 패키지를 설치합니다.
+## 🛠️ 기술 스택
 
-```bash
-npm install
-```
+- **Framework / Library**  
+  - React 19 (CRA 기반, react-scripts 5 사용)  
+  - React Router DOM 7 (라우팅)  
 
-### 3. 개발 서버 실행
-아래 명령어로 개발 서버를 실행할 수 있습니다.
+- **상태 관리**  
+  - React Hooks (useState, useEffect 등 기본 훅으로 상태 및 사이드이펙트 관리)  
 
-```bash
-npm start
-```
+- **Styling**  
+  - CSS 모듈 방식: 각 컴포넌트별 `.css` 파일 생성 후 `import`하여 사용  
 
-### 4. 브라우저에서 확인
-개발 서버가 실행되면, 브라우저에서 아래 주소로 접속하여 프로젝트를 확인할 수 있습니다.
+- **API 통신**  
+  - Axios  
 
-```
-http://localhost:3000
-```
+- **빌드 & 실행**  
+  - CRA (Create React App) 기반 빌드 툴 (`react-scripts`)  
 
-## 프로젝트 구조 
+## 📂 폴더 구조 
 ```
 src/
 ├── assets/                    # 이미지 파일들
@@ -77,6 +67,8 @@ src/
 │   │   ├── ReviewList/
 │   │   │   ├── ReviewList.js        # 내가 작성한 리뷰 리스트
 │   │   │   └── ReviewList.css
+│   │   │
+│   │   ├── ReviewWrite.js           # 리뷰 작성 폼
 │   │   ├── MyPage.js                # 마이페이지 메인 화면
 │   │   └── MyPage.css
 │   │
@@ -102,7 +94,6 @@ src/
 │   └── RequestItem.js             # 물품 대여 요청 처리 페이지
 │
 ├── styles/                    # 화면 전체 또는 특정 페이지 단위의 스타일 파일들
-│   ├── App.css                    # 전체 앱 공통 스타일
 │   ├── Home.css  
 │   ├── ItemDetail.css  
 │   ├── ItemList.css  
@@ -112,11 +103,43 @@ src/
 │   ├── Sidebar.css
 │   └── SideModal.css 
 │
+├── App.css                    # 전체 앱 공통 스타일
 ├── App.jsx                    # 루트 컴포넌트
 └── index.js                   # 진입점
 ```
 
-## 구현 화면
+## 🚀 프로젝트 실행 방법
+- Node.js와 npm이 설치되어 있어야 실행 가능합니다.
+
+### 1. 저장소 클론
+
+```bash
+git clone https://github.com/borrowLocal/frontend.git
+cd frontend
+```
+
+### 2. 의존성 설치
+프로젝트 루트 디렉토리에서 다음 명령어로 필요한 패키지를 설치합니다.
+
+```bash
+npm install
+```
+
+### 3. 개발 서버 실행
+아래 명령어로 개발 서버를 실행할 수 있습니다.
+
+```bash
+npm start
+```
+
+### 4. 브라우저에서 확인
+개발 서버가 실행되면, 브라우저에서 아래 주소로 접속하여 프로젝트를 확인할 수 있습니다.
+
+```
+http://localhost:3000
+```
+
+## 🖼️ 구현 화면
 #### 온보딩
 ![onboarding](https://github.com/user-attachments/assets/50d9c3a8-09b6-4e8f-bec1-21ba6b3e7195)
 
@@ -140,7 +163,6 @@ src/
 
 #### 대여 신청 모달
 ![requestItem](https://github.com/user-attachments/assets/d56a50cc-b1bb-4cf5-bca0-4ec1af7d679a)
-
 
 #### 메뉴
 ![mypagehome](https://github.com/user-attachments/assets/c0c7840b-cf08-46b7-8e7c-f9cc331ed5c3)
